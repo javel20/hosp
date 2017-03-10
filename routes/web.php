@@ -13,6 +13,17 @@
 
 Route::get('/', 'MainController@home');
 
+Route::resource('clientes','ClientesController');
+/*
+get/clientes index
+post/clientes store
+get/clientes/create formulario crear
+
+get/clientes/id mostrar un producto con ID
+get/clientes/id/edit
+put/patch/clientes/id
+delete/cliente/id
+*/
 
 Auth::routes();
 
