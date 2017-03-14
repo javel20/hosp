@@ -28,7 +28,8 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        return view("clientes.create");
+        $cliente=new Cliente;
+        return view("clientes.create",["cliente"=>$cliente]);
     }
 
     /**
@@ -53,7 +54,7 @@ class ClientesController extends Controller
         if($cliente->save()){
             return redirect("/clientes");
         }else{
-            return view("/clientes");
+            return view("/clientes.create",["cliente" => $cliente]);
         }
 
     }
@@ -66,7 +67,8 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        return view('clientes.show',['cliente' => $cliente]);
     }
 
     /**
@@ -77,7 +79,8 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente= Cliente::find($id);
+        return view("clientes.edit",["cliente"=>$cliente]);
     }
 
     /**
@@ -89,7 +92,22 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente= Cliente::find($id);
+
+        $cliente->dniC = $request->dniC;
+        $cliente->nombreC = $request->nombreC;
+        $cliente->apePatC = $request->apePatC;
+        $cliente->apeMatC = $request->apeMatC;
+        $cliente->direccionC = $request->direccionC;
+        $cliente->telefonoC = $request->telefonoC;
+        $cliente->correoC = $request->correoC;
+        $cliente->descripcionC = $request->descripcionC;
+
+        if($cliente->save()){
+            return redirect("/clientes");
+        }else{
+            return view("/clientes.edit",["cliente" => $cliente]);
+        }
     }
 
     /**
@@ -100,6 +118,7 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cliente::Destroy($id);
+        return redirect('/clientes');
     }
 }

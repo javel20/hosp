@@ -20,6 +20,7 @@
                 <td>telefono</td>
                 <td>Correo</td>
                 <td>Descripcion</td>
+                <td>Acciones<td>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,10 @@
                 <td>{{$cliente->telefonoC}}</td>
                 <td>{{$cliente->correoC}}</td>
                 <td>{{$cliente->descripcionC}}</td>
+                <td>
+                    <a href="{{url('/clientes/'.$cliente->id.'/edit')}}">Editar</a>
+                    @include('clientes.delete',['cliente' => $cliente])
+                </td>
             </tr>
             @endforeach
         </tbody>
