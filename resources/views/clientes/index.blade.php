@@ -1,6 +1,6 @@
-@extends("layouts.app");
+@extends("layouts.app")
 
-@section("content");
+@section("content")
 
 <div class="big-padding text-center blue-grey white-text">
     <h1>Clientes</h1>
@@ -20,7 +20,7 @@
                 <td>telefono</td>
                 <td>Correo</td>
                 <td>Descripcion</td>
-                <td>Acciones<td>
+                <td>Acciones</td>
             </tr>
         </thead>
         <tbody>

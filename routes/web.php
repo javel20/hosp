@@ -25,6 +25,8 @@ put/patch/clientes/id
 delete/cliente/id
 */
 
+Route::resource('tipohabitacions','TipoHabitacionsController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
