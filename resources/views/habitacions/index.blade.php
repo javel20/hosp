@@ -1,0 +1,41 @@
+@extends("layouts.app")
+
+@section("content")
+
+<div class="big-padding text-center blue-grey white-text">
+    <h1>Clientes</h1>
+    
+</div>
+
+<div class="container">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+
+                <td>Numero</td>
+                <td>Tipo Habitacion</td>
+                <td>Vigencia</td>
+                <td>Estado</td>
+                <td>Descripcion</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($habitacions as $habitacion)
+            <tr>
+                <td>{{$habitacion->numero}}</td>
+                <td>{{$habitacion->id_TH}}</td>
+                <td>{{$habitacion->vigencia}}</td>
+                <td>{{$habitacion->estado}}</td>
+                <td>{{$habitacion->descripcion}}</td>
+                
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+</div>
+
+
+@endsection

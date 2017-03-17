@@ -26,6 +26,7 @@ delete/cliente/id
 */
 
 Route::resource('tipohabitacions','TipoHabitacionsController');
+Route::resource('habitacions','HabitacionsController');
 
 Auth::routes();
 
