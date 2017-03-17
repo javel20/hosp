@@ -11,8 +11,8 @@
                 <div class="col-sm-6 col-xs-12"></div>
                 <div class="col-sm-6 col-xs-12">
                     <p><strong>Descripcion</strong></p>
-                    <p>{{$cliente->nombreC}}</p>
-                    <p>{{$cliente->descripcionC}}</p>
+                    <p>{{$cliente->nombre}}</p>
+                    <p>{{$cliente->descripcion}}</p>
                     <p><a href="">Agregar</a></p>
                 </div>
                 </div>

@@ -40,16 +40,29 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+            'dni' => 'required|integer|digits:8',
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z]+$/i',
+            'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z]+$/i',
+            'direccion' => 'min:3|max:50',
+            'telefono' => 'integer|digits:9',
+            'correo' => 'max:60|email',
+            'descripcion' => 'max:100'
+
+        ]);
+
         $cliente = new Cliente;
 
-        $cliente->dniC = $request->dniC;
-        $cliente->nombreC = $request->nombreC;
-        $cliente->apePatC = $request->apePatC;
-        $cliente->apeMatC = $request->apeMatC;
-        $cliente->direccionC = $request->direccionC;
-        $cliente->telefonoC = $request->telefonoC;
-        $cliente->correoC = $request->correoC;
-        $cliente->descripcionC = $request->descripcionC;
+        $cliente->dni = $request->dni;
+        $cliente->nombre = $request->nombre;
+        $cliente->apellidopaterno = $request->apellidopaterno;
+        $cliente->apellidomaterno = $request->apellidomaterno;
+        $cliente->direccion = $request->direccion;
+        $cliente->telefono = $request->telefono;
+        $cliente->correo = $request->correo;
+        $cliente->descripcion = $request->descripcion;
 
         if($cliente->save()){
             return redirect("/clientes");
@@ -92,16 +105,30 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,[
+            'dni' => 'required|integer|digits:8',
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z]+$/i',
+            'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z]+$/i',
+            'direccion' => 'min:3|max:50',
+            'telefono' => 'integer|digits:9',
+            'correo' => 'max:60|email',
+            'descripcion' => 'max:100'
+
+        ]);
+
+        
         $cliente= Cliente::find($id);
 
-        $cliente->dniC = $request->dniC;
-        $cliente->nombreC = $request->nombreC;
-        $cliente->apePatC = $request->apePatC;
-        $cliente->apeMatC = $request->apeMatC;
-        $cliente->direccionC = $request->direccionC;
-        $cliente->telefonoC = $request->telefonoC;
-        $cliente->correoC = $request->correoC;
-        $cliente->descripcionC = $request->descripcionC;
+        $cliente->dni = $request->dni;
+        $cliente->nombre = $request->nombre;
+        $cliente->apellidopaterno = $request->apellidopaterno;
+        $cliente->apellidomaterno = $request->apellidomaterno;
+        $cliente->direccion = $request->direccion;
+        $cliente->telefono = $request->telefono;
+        $cliente->correo = $request->correo;
+        $cliente->descripcion = $request->descripcion;
 
         if($cliente->save()){
             return redirect("/clientes");

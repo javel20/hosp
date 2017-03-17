@@ -26,14 +26,14 @@
         <tbody>
             @foreach($clientes as $cliente)
             <tr>
-                <td>{{$cliente->dniC}}</td>
-                <td>{{$cliente->nombreC}}</td>
-                <td>{{$cliente->apePatC}}</td>
-                <td>{{$cliente->apeMatC}}</td>
-                <td>{{$cliente->direccionC}}</td>
-                <td>{{$cliente->telefonoC}}</td>
-                <td>{{$cliente->correoC}}</td>
-                <td>{{$cliente->descripcionC}}</td>
+                <td>{{$cliente->dni}}</td>
+                <td>{{$cliente->nombre}}</td>
+                <td>{{$cliente->apellidopaterno}}</td>
+                <td>{{$cliente->apellidomaterno}}</td>
+                <td>{{$cliente->direccion}}</td>
+                <td>{{$cliente->telefono}}</td>
+                <td>{{$cliente->correo}}</td>
+                <td>{{$cliente->descripcion}}</td>
                 <td>
                     <a href="{{url('/clientes/'.$cliente->id.'/edit')}}">Editar</a>
                     @include('clientes.delete',['cliente' => $cliente])

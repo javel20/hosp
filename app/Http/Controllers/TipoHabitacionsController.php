@@ -28,7 +28,8 @@ class TipoHabitacionsController extends Controller
      */
     public function create()
     {
-        //
+        $tipohabitacion=new Tipohabitacion;
+        return view("tipohabitacions.create",["tipohabitacion"=>$tipohabitacion]);
     }
 
     /**
@@ -39,7 +40,25 @@ class TipoHabitacionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'precio' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'descripcion' => 'max:100'
+
+        ]);
+
+        $tipohabitacion = new Tipohabitacion;
+
+        $tipohabitacion->nombre = $request->nombre;
+        $tipohabitacion->precio = $request->precio;
+        $tipohabitacion->descripcion = $request->descripcion;
+
+        if($tipohabitacion->save()){
+            return redirect("/tipohabitacions");
+        }else{
+            return view("/tipohabitacions.create",["tipohabitacion" => $tipohabitacion]);
+        }
     }
 
     /**
@@ -61,7 +80,8 @@ class TipoHabitacionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipohabitacion= Tipohabitacion::find($id);
+        return view("tipohabitacions.edit",["tipohabitacion"=>$tipohabitacion]);
     }
 
     /**
@@ -73,7 +93,25 @@ class TipoHabitacionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'precio' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'descripcion' => 'max:100'
+
+        ]);
+
+        $tipohabitacion= Tipohabitacion::find($id);
+
+        $tipohabitacion->nombre = $request->nombre;
+        $tipohabitacion->precio = $request->precio;
+        $tipohabitacion->descripcion = $request->descripcion;
+
+        if($tipohabitacion->save()){
+            return redirect("/tipohabitacions");
+        }else{
+            return view("/tipohabitacions.create",["tipohabitacion" => $tipohabitacion]);
+        }
     }
 
     /**
@@ -84,7 +122,7 @@ class TipoHabitacionsController extends Controller
      */
     public function destroy($id)
     {
-        Tipohabitacion::Destroy($idTH);
-        return redirect('/tipohabitacions');
+        Tipohabitacion::Destroy($id);
+        return redirect('/tipohabitacions');    
     }
 }

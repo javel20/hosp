@@ -22,11 +22,11 @@
         <tbody>
             @foreach($tipohabitacions as $tipohabitacion)
             <tr>
-                <td>{{$tipohabitacion->nombreTH}}</td>
-                <td>{{$tipohabitacion->precioTH}}</td>
-                <td>{{$tipohabitacion->descripcionTH}}</td>
+                <td>{{$tipohabitacion->nombre}}</td>
+                <td>{{$tipohabitacion->precio}}</td>
+                <td>{{$tipohabitacion->descripcion}}</td>
                 <td>
-                    <a href="{{url('/tipohabitacions/'.$tipohabitacion->idTH.'/edit')}}">Editar</a>
+                    <a href="{{url('/tipohabitacions/'.$tipohabitacion->id.'/edit')}}">Editar</a>
                     @include('tipohabitacions.delete',['tipohabitacion' => $tipohabitacion])
                 </td>
             </tr>

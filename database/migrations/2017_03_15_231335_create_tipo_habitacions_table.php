@@ -15,10 +15,10 @@ class CreateTipoHabitacionsTable extends Migration
     {
         Schema::create('tipohabitacions',function(Blueprint $table){
 
-            $table->increments('idTH');
-            $table->string('nombreTH');
-            $table->double('precioTH');
-            $table->string('descripcionTH');
+            $table->increments('id');
+            $table->string('nombre', 30);
+            $table->double('precio', 7,2);
+            $table->string('descripcion',100)->nullable();
             $table->timestamps();
 
         });
