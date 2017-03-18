@@ -15,14 +15,14 @@ class CreateHabitacionsTable extends Migration
     {
         Schema::create('habitacions', function(Blueprint $table){
 
-            $table->integer('id_TH')->unsigned();
             $table->increments('id');
             $table->integer('numero');
             $table->string('vigencia', 40);
             $table->string('estado', 40);
             $table->string('descripcion', 100)->nullable();
+            $table->integer('tipohabitacion_id')->unsigned();
+            $table->foreign('tipohabitacion_id')->references('id')->on('tipohabitacions');
             $table->timestamps();
-            $table->foreign('id_TH')->references('id')->on('tipohabitacions');
 
         });
     }

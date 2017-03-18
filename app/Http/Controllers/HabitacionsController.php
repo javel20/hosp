@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use hosp\Http\Requests;
 
 use hosp\Habitacion;
+use hosp\Tipohabitacion;
 
 class HabitacionsController extends Controller
 {
@@ -17,8 +18,22 @@ class HabitacionsController extends Controller
      */
     public function index()
     {
-        $habitacions = Habitacion::All();
-        return view("habitacions.index", ["habitacions"=> $habitacions]);
+        // $habitacions = Habitacion::All();
+
+        // foreach($habitacions as $hab){
+        //     $hab->tipohabitacion;
+        // }
+        // // dd($habitacions);
+        // return view("habitacions.index")->with([
+        //     'habitaciones' => $habitacions
+        // ]);
+
+        $habitacions = Habitacion::habitacions();
+        // dd($habitacions);
+        return view("habitacions.index")->with([
+             'habitaciones' => $habitacions
+        ]);
+
     }
 
     /**
@@ -28,7 +43,12 @@ class HabitacionsController extends Controller
      */
     public function create()
     {
-        //
+        $habitacion=new Habitacion;
+        $tipoHabitacion = Tipohabitacion::all();
+        return view("habitacions.create")->with([
+             'habitacion' => $habitacion, 
+             'tipos' => $tipoHabitacion
+        ]);
     }
 
     /**
@@ -39,8 +59,27 @@ class HabitacionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+  
+
+        $habitacion=new Habitacion;
+
+        $habitacion->numero = $request->numero;
+        $habitacion->vigencia = $request->vigencia;
+        $habitacion->estado = $request->estado;
+        $habitacion->descripcion = $request->descripcion;
+        $habitacion->tipohabitacion_id = $request->tipoh;
+
+       
+
+        if($habitacion->save()){
+            //  dd($habitacion);
+            return redirect("/habitacions");
+        }else{
+            //  dd($habitacion);
+            return view("/habitacions.create",["habitacion" => $habitacion]);
+        }
     }
+    
 
     /**
      * Display the specified resource.

@@ -22,10 +22,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($habitacions as $habitacion)
+            @foreach($habitaciones as $habitacion)
             <tr>
                 <td>{{$habitacion->numero}}</td>
-                <td>{{$habitacion->id_TH}}</td>
+                <td>{{$habitacion->tipohabitacion->nombre}}</td>
                 <td>{{$habitacion->vigencia}}</td>
                 <td>{{$habitacion->estado}}</td>
                 <td>{{$habitacion->descripcion}}</td>
