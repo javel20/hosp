@@ -4,7 +4,7 @@
 
     <div class="container white">
     
-        <h1>Nuevo Habitacion</h1>
+        <h1>Nueva Habitacion</h1>
 
             @include('habitacions.form',['habitacion'=>$habitacion, 'url' => '/habitacions', 'method' => 'POST'])    
     

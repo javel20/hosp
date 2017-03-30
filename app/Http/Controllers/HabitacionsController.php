@@ -76,7 +76,7 @@ class HabitacionsController extends Controller
             return redirect("/habitacions");
         }else{
             //  dd($habitacion);
-            return view("/habitacions.create",["habitacion" => $habitacion]);
+            return view("/habitacions.create");
         }
     }
     
@@ -100,7 +100,12 @@ class HabitacionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $habitacion= Habitacion::find($id);
+        $tipoHabitacion= Tipohabitacion::All();
+        return view("habitacions.edit")->with([
+             'habitacion' => $habitacion, 
+             'tipos' => $tipoHabitacion
+        ]);
     }
 
     /**
@@ -112,7 +117,21 @@ class HabitacionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+
+        $habitacion= Habitacion::find($id);
+
+        $habitacion->numero = $request->numero;
+        $habitacion->vigencia = $request->vigencia;
+        $habitacion->estado = $request->estado;
+        $habitacion->descripcion = $request->descripcion;
+        $habitacion->tipohabitacion_id = $request->tipoh;
+
+        if($habitacion->save()){
+            return redirect("/habitacions");
+        }else{
+            return view("/habitacions.edit",["habitacion" => $habitacion]);
+        }
     }
 
     /**
@@ -123,6 +142,7 @@ class HabitacionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Habitacion::Destroy($id);
+        return redirect('/habitacions');
     }
 }

@@ -10,29 +10,33 @@
 
             <div class="form-group col-md-6">
             <label>Vigencia</label>
-                {{Form::text('vigencia',$habitacion->vigencia,['class' => 'form-control', 'placeholder'=>'vigencia','maxlength'=>'8'])}}
+                {{Form::text('vigencia',$habitacion->vigencia,['class' => 'form-control', 'placeholder'=>'vigencia','maxlength'=>'15'])}}
                 
             </div>
 
             <div class="form-group col-md-6">
             <label>Estado</label>
-                {{Form::text('estado',$habitacion->estado,['class' => 'form-control', 'placeholder'=>'estado','maxlength'=>'8'])}}
+                {{Form::text('estado',$habitacion->estado,['class' => 'form-control', 'placeholder'=>'estado','maxlength'=>'15'])}}
                 
             </div>
 
 
             <div class="form-group col-md-6">
             <label>Descripcion</label>
-                {{Form::text('descripcion',$habitacion->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'50'])}}
+                {{Form::text('descripcion',$habitacion->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'100'])}}
                 
             </div>
 
             <div class="form-group col-md-6">
             <label>Tipo Habitacion</label>
 
-                <select class="form-control" name="tipoh" id="tipoh" value= {{ $habitacion->tipohabitacion_id}}>
+                <select class="form-control" name="tipoh" id="tipoh" value={{$habitacion->tipohabitacion_id}}>
                 @foreach ($tipos as $tipo)
-                        <option value={{$tipo->id}}> {{$tipo->nombre}} </option>
+                        @if($habitacion->tipohabitacion_id==$tipo->id)
+                            <option value={{$tipo->id}} selected> {{$tipo->nombre}} </option>
+                            @else
+                            <option value={{$tipo->id}}> {{$tipo->nombre}} </option>
+                        @endif
                 @endforeach
                 </select>
 

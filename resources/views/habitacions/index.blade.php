@@ -29,7 +29,10 @@
                 <td>{{$habitacion->vigencia}}</td>
                 <td>{{$habitacion->estado}}</td>
                 <td>{{$habitacion->descripcion}}</td>
-                
+                <td>
+                    <a href="{{url('/habitacions/'.$habitacion->id.'/edit')}}">Editar</a>
+                    @include('habitacions.delete',['habitacion' => $habitacion])
+                </td>
             </tr>
             @endforeach
         </tbody>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientesTable extends Migration
+class CreateLocalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clientes',function(Blueprint $table){
+        Schema::create('locals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('dni',8)->unique();
-            $table->string('nombre',60);
-            $table->string('apellidopaterno',30);
-            $table->string('apellidomaterno',30)->nullable();
+            $table->string('nombre',100)->unique();
             $table->string('direccion',50)->nullable();
             $table->string('telefono',9)->nullable();
-            $table->string('correo',60)->nullable()->unique();
-            $table->string('descripcion',100)->nullable();
+            $table->string('estado',30);
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ class CreateClientesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('clientes');
+        Schema::drop('locals');
     }
 }
