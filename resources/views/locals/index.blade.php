@@ -3,7 +3,7 @@
 @section("content")
 
 <div class="big-padding text-center blue-grey white-text">
-    <h1>Tipo Trabajador</h1>
+    <h1>Local</h1>
     
 </div>
 
@@ -14,18 +14,22 @@
             <tr>
 
                 <td>Nombre</td>
-                <td>Descripcion</td>
+                <td>Direccion</td>
+                <td>Telefono</td>
+                <td>Estado</td>
                 <td>Acciones</td>
             </tr>
         </thead>
         <tbody>
-            @foreach($tipotrabajadors as $tipotrabajador)
+            @foreach($locals as $local)
             <tr>
-                <td>{{$tipotrabajador->nombre}}</td>
-                <td>{{$tipotrabajador->descripcion}}</td>
+                <td>{{$local->nombre}}</td>
+                <td>{{$local->direccion}}</td>
+                <td>{{$local->telefono}}</td>
+                <td>{{$local->estado}}</td>
                 <td>
-                    <a href="{{url('/tipotrabajadors/'.$tipotrabajador->id.'/edit')}}">Editar</a>
-                    @include('tipotrabajadors.delete',['tipotrabajador' => $tipotrabajador])
+                    <a href="{{url('/locals/'.$local->id.'/edit')}}">Editar</a>
+                    @include('locals.delete',['local' => $local])
                 </td>
             </tr>
             @endforeach

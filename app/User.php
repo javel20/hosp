@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function trabajador()
+    {
+        return $this->belongsTo(Trabajador::class);
+    }
+
+
+    public function scopeUsers($query)
+    {
+        return $query->where('users.estado', '=' ,'Habilitado')
+                    ->select('users.*', 'users.nombre as nombreu')
+                    ->get();
+
+    }
+
+
 }

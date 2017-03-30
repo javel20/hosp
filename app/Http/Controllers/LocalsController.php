@@ -13,7 +13,8 @@ class LocalsController extends Controller
      */
     public function index()
     {
-        //
+        $locals = Local::All();
+        return view("locals.index", ["locals"=> $locals]);
     }
 
     /**
@@ -23,7 +24,8 @@ class LocalsController extends Controller
      */
     public function create()
     {
-        //
+        $local=new Local;
+        return view("locals.create",["local"=>$local]);
     }
 
     /**
@@ -34,7 +36,18 @@ class LocalsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $local = new local;
+
+        $local->nombre = $request->nombre;
+        $local->direccion = $request->direccion;
+        $local->telefono = $request->telefono;
+        $local->estado = $request->estado;
+
+        if($local->save()){
+            return redirect("/locals");
+        }else{
+            return view("/locals.create",["local" => $local]);
+        }
     }
 
     /**
@@ -56,7 +69,8 @@ class LocalsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $local= Local::find($id);
+        return view("locals.edit",["local"=>$local]);
     }
 
     /**
@@ -68,7 +82,18 @@ class LocalsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $local= Local::find($id);
+
+        $local->nombre = $request->nombre;
+        $local->direccion = $request->direccion;
+        $local->telefono = $request->telefono;
+        $local->estado = $request->estado;
+
+        if($local->save()){
+            return redirect("/locals");
+        }else{
+            return view("/locals.create",["local" => $local]);
+        }
     }
 
     /**
@@ -79,6 +104,7 @@ class LocalsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Local::Destroy($id);
+        return redirect('/locals');    
     }
 }

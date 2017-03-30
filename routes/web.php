@@ -29,6 +29,7 @@ Route::resource('tipohabitacions','TipoHabitacionsController');
 Route::resource('habitacions','HabitacionsController');
 Route::resource('locals','LocalsController');
 Route::resource('tipotrabajadors','TipotrabajadorsController');
+Route::resource('trabajadors','TrabajadorController');
 
 Auth::routes();
 

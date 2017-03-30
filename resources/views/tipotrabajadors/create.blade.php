@@ -4,7 +4,7 @@
 
     <div class="container white">
     
-        <h1>Nuevo Tipo Habitacion</h1>
+        <h1>Nuevo Tipo Trabajador</h1>
 
             @include('tipotrabajadors.form',['tipotrabajador'=>$tipotrabajador, 'url' => '/tipotrabajadors', 'method' => 'POST'])    
     
