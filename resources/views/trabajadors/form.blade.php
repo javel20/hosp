@@ -35,7 +35,7 @@
 
             <div class="form-group col-md-6">
             <label>Operador</label>
-                {{Form::text('direccion',$trabajador->direccion,['class' => 'form-control', 'placeholder'=>'Direccion','maxlength'=>'15'])}}
+                {{Form::text('operador',$trabajador->operador,['class' => 'form-control', 'placeholder'=>'Operador','maxlength'=>'15'])}}
                 
             </div>
 
@@ -50,7 +50,7 @@
             <div class="form-group col-md-6">
             <label>Tipo trabajador</label>
 
-                <select class="form-control" name="tipot" id="tipot" value={{$trabajador->tipotrabajador_id}}>
+                <select class="form-control" name="tipotrab" id="tipot" value={{$trabajador->tipotrabajador_id}}>
                             <option value="seleccionar">--seleccionar--</option>
                 @foreach($tipotrabajadors as $tipo)
                         @if($trabajador->tipotrabajador_id == $tipo->id)
@@ -66,7 +66,7 @@
             <div class="form-group col-md-6">
             <label>Local</label>
 
-                <select class="form-control" name="locals" id="locals" value={{$trabajador->local_id}}>
+                <select class="form-control" name="local" id="locals" value={{$trabajador->local_id}}>
                             <option value="seleccionar">--seleccionar--</option>
                 @foreach ($locals as $local)
                         @if($trabajador->local_id==$local->id)
@@ -82,7 +82,7 @@
             <div class="form-group col-md-6">
             <label>Usuario</label>
 
-                <select class="form-control" name="users" id="users" value={{$trabajador->user_id}}>
+                <select class="form-control" name="user" id="users" value={{$trabajador->user_id}}>
                             <option value="seleccionar">--seleccionar--</option>
                 @foreach ($users as $user)
                         @if($trabajador->user_id==$user->id)
