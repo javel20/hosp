@@ -36,9 +36,9 @@
                 <td>{{$trabajador->celular}}</td>
                 <td>{{$trabajador->operador}}</td>
                 <td>{{$trabajador->estado}}</td>
-                <td>{{$trabajador->tipotrabajador->tipotrab}}</td>
-                <td>{{$trabajador->tipotrabajador->local}}</td>
-                <td>{{$trabajador->tipotrabajador->usuario}}</td>
+                <td>{{$trabajador->tipotrabajador->nombre}}</td>
+                <td>{{$trabajador->local->nombre}}</td>
+                <td>{{$trabajador->user->email}}</td>
                 <td>
                     <a href="{{url('/trabajadors/'.$trabajador->id.'/edit')}}">Editar</a>
                     @include('trabajadors.delete',['trabajador' => $trabajador])

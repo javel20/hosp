@@ -86,9 +86,9 @@
                             <option value="seleccionar">--seleccionar--</option>
                 @foreach ($users as $user)
                         @if($trabajador->user_id==$user->id)
-                            <option value={{$user->id}} selected> {{$user->nombre}} </option>
+                            <option value={{$user->id}} selected> {{$user->emmail}} </option>
                             @else
-                            <option value={{$user->id}}> {{$user->nombre}} </option>
+                            <option value={{$user->id}}> {{$user->emmail}} </option>
                         @endif
                 @endforeach
                 </select>

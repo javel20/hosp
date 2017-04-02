@@ -98,11 +98,17 @@ class TrabajadorController extends Controller
      */
     public function edit($id)
     {
-        $trabajador= trabajador::find($id);
-        $local= Tipotrabajador::All();
+        $trabajador= Trabajador::find($id);
+        $tipotrabajadors = Tipotrabajador::all();
+        $locals = Local::all();
+        $users = User::all();
+        // dd($trabajador);
+
         return view("trabajadors.edit")->with([
              'trabajador' => $trabajador, 
-             'tipos' => $tipoTrabajador
+             'tipotrabajadors' => $tipotrabajadors,
+             'locals' => $locals,
+             'users' => $users
         ]);
     }
 
@@ -124,7 +130,7 @@ class TrabajadorController extends Controller
         $trabajador->celular = $request->celular;
         $trabajador->operador = $request->operador;
         $trabajador->estado = $request->estado;
-        $trabajador->tipotrabajador_id = $request->tipoh;
+        $trabajador->tipotrabajador_id = $request->tipotrab;
         $trabajador->local_id = $request->local;
         $trabajador->user_id = $request->user;
        
@@ -134,7 +140,7 @@ class TrabajadorController extends Controller
             return redirect("/trabajadors");
         }else{
             //  dd($trabajador);
-            return view("/trabajadors.create");
+            return view("/trabajadors.edit",["trabajador" => $trabajador]);
         }
     }
 
