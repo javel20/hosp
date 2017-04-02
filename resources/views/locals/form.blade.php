@@ -12,7 +12,7 @@
 
 
             <div class="form-group col-md-6">
-            <label>Direccion</label>
+            <label>Direccion:</label>
                 {{Form::text('direccion',$local->direccion,['class' => 'form-control', 'placeholder'=>'Direccion','maxlength'=>'50'])}}
                 @if($errors->has('direccion'))
                     <span style='color:red;'>{{$errors->first('direccion')}}</span>
@@ -20,7 +20,7 @@
             </div>
 
             <div class="form-group col-md-6">
-            <label>Telefono</label>
+            <label>Telefono:</label>
                 {{Form::text('telefono',$local->telefono,['class' => 'form-control', 'placeholder'=>'Telefono','maxlength'=>'50'])}}
                 @if($errors->has('telefono'))
                     <span style='color:red;'>{{$errors->first('telefono')}}</span>
@@ -28,12 +28,15 @@
             </div>
 
             
-            <select class="form-control" name="tipoh" id="tipoh" value={{$habitacion->tipohabitacion_id}}>
-                            <option value= > --seleccionar-- </option>
-                            <option value= > Habilitado </option>
-                            <option value= > Desabilitado </option>
-                            <option value= > Remodelado </option>
+            <div class="form-group col-md-6">
+            <label>Estado:</label>
+                <select class="form-control" name="estado" id="estado" value={{$local->id}}>
+                    <option value=> --seleccionar-- </option>
+                    <option value="Habilitado" selected> Habilitado </option>
+                    <option value="Desabilitado" selected> Desabilitado </option>
+                    <option value="Remodelado" selected> Remodelado </option>
                 </select>
+            </div>
 
 
 

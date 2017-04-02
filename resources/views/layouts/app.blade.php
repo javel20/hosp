@@ -75,6 +75,20 @@
             </div>
         </nav>
 
+            <div class="">
+                <div class="col-md-2">
+                    <br>
+                    <p>hola</p>
+                    <br>
+                    <p>ho</p>
+                
+                </div>
+
+
+                
+                <div class="col-md-10">
+
+
         @yield('content')
     </div>
 

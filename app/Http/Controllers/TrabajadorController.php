@@ -23,7 +23,7 @@ class TrabajadorController extends Controller
         $trabajadors = Trabajador::trabajadors();
         // dd($trabajadors);
         return view("trabajadors.index")->with([
-             'trabajadores' => $trabajadors
+             'trabajadors' => $trabajadors
         ]);
     }
 

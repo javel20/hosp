@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="container white">
+    <div class="">
     
         <h1>Editar Habitacion</h1>
 

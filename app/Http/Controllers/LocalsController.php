@@ -4,6 +4,10 @@ namespace hosp\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use hosp\Http\Requests;
+
+use hosp\Local;
+
 class LocalsController extends Controller
 {
     /**

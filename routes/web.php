@@ -30,6 +30,7 @@ Route::resource('habitacions','HabitacionsController');
 Route::resource('locals','LocalsController');
 Route::resource('tipotrabajadors','TipotrabajadorsController');
 Route::resource('trabajadors','TrabajadorController');
+Route::resource('licencias','LicenciasController');
 
 Auth::routes();
 

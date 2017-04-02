@@ -1,12 +1,12 @@
-@extends("layouts.app");
+@extends("layouts.app")
 
-@section("content");
+@section("content")
 
-    <div class="container white">
+    <div class="">
     
         <h1>Editar Local</h1>
 
-            @include('locals.form',['local'=>$local, 'url' => '/locals/'.$tipohabitacion->id, 'method' => 'PATCH'])
+            @include('locals.form',['local'=>$local, 'url' => '/locals/'.$local->id, 'method' => 'PATCH'])
 
     </div>
 

@@ -22,6 +22,12 @@ class Trabajador extends Model
     {
         return $this->belongsTo(Tipotrabajador::class);
     }
+
+
+    public function licencia()
+    {
+        return $this->hasMany(Licencia::class);
+    }
     
 
     public function scopeTrabajadors($query)

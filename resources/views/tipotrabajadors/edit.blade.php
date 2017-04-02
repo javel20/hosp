@@ -2,11 +2,11 @@
 
 @section("content")
 
-    <div class="container white">
+    <div class="">
     
         <h1>Editar Tipo Trabajador</h1>
 
-            @include('tipotrabajadors.form',['tipotrabajador'=>$tipotrabajador, 'url' => '/tipotrabajadors/'.$tipohabitacion->id, 'method' => 'PATCH'])
+            @include('tipotrabajadors.form',['tipotrabajador'=>$tipotrabajador, 'url' => '/tipotrabajadors/'.$tipotrabajador->id, 'method' => 'PATCH'])
 
     </div>
 
