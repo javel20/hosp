@@ -89,7 +89,7 @@ class LicenciasController extends Controller
     {
         $licencias = Licencia::find($id);
         $trabajadors = Trabajador::all();
-        return view("licencias.create")->with([
+        return view("licencias.edit")->with([
              'licencias' => $licencias, 
              'trabajadors' => $trabajadors
         ]);
@@ -120,7 +120,7 @@ class LicenciasController extends Controller
             return redirect("/licencias");
         }else{
             //  dd($licencia);
-            return view("/licencias.create");
+            return view("/licencias.edit");
         }
     }
 

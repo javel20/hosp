@@ -24,14 +24,11 @@
             <tbody>
                 @foreach($licencias as $licencia)
                 <tr>
-                    <td>{{$licencia->dni}}</td>
                     <td>{{$licencia->nombre}}</td>
                     <td>{{$licencia->trabajador->nombre}}</td>
-                    <td>{{$licencia->apellidopaterno}}</td>
-                    <td>{{$licencia->apellidomaterno}}</td>
-                    <td>{{$licencia->direccion}}</td>
-                    <td>{{$licencia->telefono}}</td>
-                    <td>{{$licencia->correo}}</td>
+                    <td>{{$licencia->fechai}}</td>
+                    <td>{{$licencia->fechaf}}</td>
+                    <td>{{$licencia->estado}}</td>
                     <td>{{$licencia->descripcion}}</td>
                     <td>
                         <a href="{{url('/licencias/'.$licencia->id.'/edit')}}">Editar</a>

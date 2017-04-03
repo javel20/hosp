@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -14,16 +14,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    @yield('content-css')
     <link href="{{ url('/css/app.css') }}" rel="stylesheet">
+    
     
     
 
     <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+    
 </head>
 <body>
     <div id="app">
@@ -75,19 +74,6 @@
             </div>
         </nav>
 
-            <div class="">
-                <div class="col-md-2">
-                    <br>
-                    <p>hola</p>
-                    <br>
-                    <p>ho</p>
-                
-                </div>
-
-
-                
-                <div class="col-md-10">
-
 
         @yield('content')
     </div>
@@ -100,7 +86,14 @@
     <script>
         $.material.init();
     </script>
-    <script src="{{ url('/js/app.js') }}"></script>
+    
+
+    
+        @yield('js')
+    
+
+     
+
 
 </body>
 </html>

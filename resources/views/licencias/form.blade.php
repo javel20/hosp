@@ -1,9 +1,6 @@
 {!!Form::open(['url' => $url, 'method' => $method])!!}
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-            <div class="form-group col-md-6">
+       <div class="form-group col-md-6">
             <label>Nombre:</label>
                 {{Form::text('nombre',$licencia->nombre,['class' => 'form-control', 'placeholder'=>'nombre','maxlength'=>'60'])}}
                 
@@ -12,47 +9,27 @@
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Inicio</label>
-                <input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" type="text"/>
+                <input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" value={{$licencia->fechai}} type="text"/>
 
-                  <script>
-                    $(document).ready(function(){
-                      var date_input=$('input[name="Fecha"]'); //our date input has the name "date"
-                        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-                        var options={
-                          format: 'mm/dd/yyyy',
-                          container: container,
-                          todayHighlight: true,
-                          autoclose: true,
-                        };
-                        date_input.datepicker(options);
-                      })
-                  </script>
+                  
 
             </div>
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Termino</label>
-                <input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10" type="text"/>
+                <input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10"  value={{$licencia->fechaf}} type="text"/>
 
-                  <script>
-                    $(document).ready(function(){
-                      var date_input=$('input[name="Fecha"]'); //our date input has the name "date"
-                        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-                        var options={
-                          format: 'mm/dd/yyyy',
-                          container: container,
-                          todayHighlight: true,
-                          autoclose: true,
-                        };
-                        date_input.datepicker(options);
-                      })
-                  </script>
+                  
 
             </div>
 
             <div class="form-group col-md-6">
             <label>Estado</label>
-                {{Form::text('estado',$licencia->estado,['class' => 'form-control', 'placeholder'=>'estado','maxlength'=>'15'])}}
+                <select class="form-control" name="estado" id="estado" value={{$licencia->estado}}>
+                    <option value="">--seleccionar--</option>
+                    <option value="De permiso" <?php echo ($licencia->estado=="De permiso" ? 'selected="selected"' : '');?>>De permiso</option>
+                    <option value="De retorno" <?php echo ($licencia->estado=="De retorno" ? 'selected="selected"' : '');?>>De retorno</option>
+                </select>
                 
             </div>
 
@@ -66,7 +43,7 @@
             <div class="form-group col-md-6">
             <label>Trabajador</label>
 
-                <select class="form-control" name="tipoh" id="tipoh" value={{$licencia->trabajador_id}}>
+                <select class="form-control" name="trabajador" id="trabajador" value={{$licencia->trabajador_id}}>
                 @foreach ($trabajadors as $trab)
                         @if($licencia->tipolicencia_id==$trab->id)
                             <option value={{$trab->id}} selected> {{$trab->nombre}} </option>

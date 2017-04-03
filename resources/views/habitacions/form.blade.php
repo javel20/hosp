@@ -16,8 +16,12 @@
 
             <div class="form-group col-md-6">
             <label>Estado</label>
-                {{Form::text('estado',$habitacion->estado,['class' => 'form-control', 'placeholder'=>'estado','maxlength'=>'15'])}}
-                
+                <select class="form-control" name="estado" id="estado" value={{$habitacion->estado}}>
+                    <option value="">--seleccionar--</option>
+                    <option value="Habilitado" <?php echo ($habitacion->estado=="Habilitado" ? 'selected="selected"' : '');?>>Habilitado</option>
+                    <option value="Ocupado" <?php echo ($habitacion->estado=="Ocupado" ? 'selected="selected"' : '');?>>Ocupado</option>
+                    <option value="Mantenimiento" <?php echo ($habitacion->estado=="Mantenimiento" ? 'selected="selected"' : '');?>>Mantenimiento</option>
+                </select>
             </div>
 
 

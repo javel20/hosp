@@ -11,7 +11,7 @@ use hosp\Tipotrabajador;
 use hosp\Local;
 use hosp\User;
 
-class TrabajadorController extends Controller
+class TrabajadorsController extends Controller
 {
     /**
      * Display a listing of the resource.

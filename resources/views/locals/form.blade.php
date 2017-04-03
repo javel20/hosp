@@ -30,11 +30,11 @@
             
             <div class="form-group col-md-6">
             <label>Estado:</label>
-                <select class="form-control" name="estado" id="estado" value={{$local->id}}>
-                    <option value=> --seleccionar-- </option>
-                    <option value="Habilitado" selected> Habilitado </option>
-                    <option value="Desabilitado" selected> Desabilitado </option>
-                    <option value="Remodelado" selected> Remodelado </option>
+                <select class="form-control" name="estado" id="estado" value={{$local->estado}}>
+                    <option value="">--seleccionar--</option>
+                    <option value="Habilitado" <?php echo ($local->estado=="Habilitado" ? 'selected="selected"' : '');?>>Habilitado</option>
+                    <option value="Desabilitado" <?php echo ($local->estado=="Desabilitado" ? 'selected="selected"' : '');?>>Desabilitado</option>
+                    <option value="Mantenimiento" <?php echo ($local->estado=="Mantenimiento" ? 'selected="selected"' : '');?>>Mantenimiento</option>
                 </select>
             </div>
 
