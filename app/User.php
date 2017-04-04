@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->hasOne(Trabajador::class);
     }
 
+    public function acceso()
+    {
+        return $this->belongsToMany('hosp\Accesso');
+    }
+
 
     public function scopeUsers($query)
     {

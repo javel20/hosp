@@ -9,7 +9,7 @@
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Inicio</label>
-                <input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" value={{$licencia->fechai}} type="text"/>
+                <input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" value={{$licencia->fechai}}>
 
                   
 
@@ -17,7 +17,7 @@
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Termino</label>
-                <input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10"  value={{$licencia->fechaf}} type="text"/>
+                <input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10"  value={{$licencia->fechaf}}>
 
                   
 
@@ -44,6 +44,7 @@
             <label>Trabajador</label>
 
                 <select class="form-control" name="trabajador" id="trabajador" value={{$licencia->trabajador_id}}>
+                        <option value="">--seleccionar--</option>
                 @foreach ($trabajadors as $trab)
                         @if($licencia->tipolicencia_id==$trab->id)
                             <option value={{$trab->id}} selected> {{$trab->nombre}} </option>

@@ -35,6 +35,7 @@
             <label>Tipo Habitacion</label>
 
                 <select class="form-control" name="tipoh" id="tipoh" value={{$habitacion->tipohabitacion_id}}>
+                        <option value="">--seleccionar--</option>
                 @foreach ($tipos as $tipo)
                         @if($habitacion->tipohabitacion_id==$tipo->id)
                             <option value={{$tipo->id}} selected> {{$tipo->nombre}} </option>

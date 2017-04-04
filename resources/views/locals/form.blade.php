@@ -27,7 +27,8 @@
                 @endif
             </div>
 
-            
+            @if($estado == 1)
+
             <div class="form-group col-md-6">
             <label>Estado:</label>
                 <select class="form-control" name="estado" id="estado" value={{$local->estado}}>
@@ -37,7 +38,7 @@
                     <option value="Mantenimiento" <?php echo ($local->estado=="Mantenimiento" ? 'selected="selected"' : '');?>>Mantenimiento</option>
                 </select>
             </div>
-
+            @endif
 
 
             <div class="form-group text-right">

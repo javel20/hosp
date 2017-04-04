@@ -18,7 +18,7 @@ class CreateLocalsTable extends Migration
             $table->string('nombre',100)->unique();
             $table->string('direccion',50)->nullable();
             $table->string('telefono',9)->nullable();
-            $table->string('estado',30);
+            $table->string('estado',30)->default('Habilitado');
             $table->timestamps();
         });
     }

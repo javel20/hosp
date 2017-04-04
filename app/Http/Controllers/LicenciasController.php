@@ -48,11 +48,37 @@ class LicenciasController extends Controller
      */
     public function store(Request $request)
     {
+
+                
+            $fechar = $_POST['fechai'];
+            $array = explode('/', $fechar);
+            $fecha_php =  $array[2] ."-". $array[1] ."-". $array[0];
+            // die($fecha_php);
+            // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
+            
+            $this->fechai    =  strval(trim($fecha_php));
+
+            $fechai=strftime( "%Y-%m-%d", time() );
+            $this->FechaRegistro    =  $fechai;
+
+            $fechar = $_POST['fechaf'];
+            $array = explode('/', $fechar);
+            $fecha_php =  $array[2] ."-". $array[1] ."-". $array[0];
+            // die($fecha_php);
+            // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
+            
+            $this->fechaf    =  strval(trim($fecha_php));
+
+            $fechaf=strftime( "%Y-%m-%d", time() );
+            $this->FechaRegistro    =  $fechaf;
+
+
+
         $licencia = new Licencia;
 
         $licencia->nombre = $request->nombre;
-        $licencia->fechai = $request->fechai;
-        $licencia->fechaf = $request->fechaf;
+        $licencia->fechai = $fechai;
+        $licencia->fechaf = $fechaf;
         $licencia->estado = $request->estado;
         $licencia->descripcion = $request->descripcion;
         $licencia->trabajador_id = $request->trabajador;
@@ -104,11 +130,33 @@ class LicenciasController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $licencias = Licencia::find($id);
 
+        $fechai = $_POST['fechai'];
+        $pos = preg_match('/[\/]+/',$fechai);
+        if($pos == true){
+                $array = explode('/', $fechai);
+                $fecha_phpi =  $array[2] ."-". $array[1] ."-". $array[0];
+
+        } else{
+                $fecha_phpi = $fechai; 
+        }
+
+        $fechaf = $_POST['fechaf'];
+        $pos = preg_match('/[\/]+/',$fechaf);
+        if($pos == true){
+                $array = explode('/', $fechaf);
+                $fecha_phpf =  $array[2] ."-". $array[1] ."-". $array[0];
+
+        } else{
+                $fecha_phpf = $fechaf; 
+        }
+
+        
         $licencia->nombre = $request->nombre;
-        $licencia->fechai = $request->fechai;
-        $licencia->fechaf = $request->fechaf;
+        $licencia->fechai = strval(trim($fecha_phpi));
+        $licencia->fechaf = strval(trim($fecha_phpf));
         $licencia->estado = $request->estado;
         $licencia->descripcion = $request->descripcion;
         $licencia->trabajador_id = $request->trabajador;

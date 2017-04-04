@@ -27,22 +27,36 @@
                 
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
             <label>Celular</label>
-                {{Form::text('celular',$trabajador->celular,['class' => 'form-control', 'placeholder'=>'Celular','maxlength'=>'15'])}}
+                {{Form::text('celular',$trabajador->celular,['class' => 'form-control', 'placeholder'=>'Celular','maxlength'=>'9'])}}
                 
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
             <label>Operador</label>
-                {{Form::text('operador',$trabajador->operador,['class' => 'form-control', 'placeholder'=>'Operador','maxlength'=>'15'])}}
+                <select class="form-control" name="operador" id="operador" value={{$trabajador->operador}}>
+                    <option value="">--seleccionar--</option>
+                    <option value="Rpm" <?php echo ($trabajador->operador=="Rpm" ? 'selected="selected"' : '');?>>Rpm</option>
+                    <option value="Movistar" <?php echo ($trabajador->operador=="Movistar" ? 'selected="selected"' : '');?>>Movistar</option>
+                    <option value="Rpc" <?php echo ($trabajador->operador=="Rpc" ? 'selected="selected"' : '');?>>Rpc</option>
+                    <option value="Claro" <?php echo ($trabajador->operador=="Claro" ? 'selected="selected"' : '');?>>Claro</option>
+                    <option value="Entel" <?php echo ($trabajador->operador=="Entel" ? 'selected="selected"' : '');?>>Entel</option>
+                    <option value="Bitel" <?php echo ($trabajador->operador=="Bitel" ? 'selected="selected"' : '');?>>Bitel</option>
+                    <option value="Virgin" <?php echo ($trabajador->operador=="Virgin" ? 'selected="selected"' : '');?>>Virgin</option>
+                </select>
                 
             </div>
 
 
             <div class="form-group col-md-6">
             <label>Estado</label>
-                {{Form::text('estado',$trabajador->estado,['class' => 'form-control', 'placeholder'=>'estado','maxlength'=>'15'])}}
+                <select class="form-control" name="estado" id="estado" value={{$trabajador->estado}}>
+                    <option value="">--seleccionar--</option>
+                    <option value="Contratado" <?php echo ($trabajador->estado=="Contratado" ? 'selected="selected"' : '');?>>Contratado</option>
+                    <option value="Contrado Finalziado" <?php echo ($trabajador->estado=="Contrado Finalziado" ? 'selected="selected"' : '');?>>Contrado Finalziado</option>
+                    <option value="Expulsado" <?php echo ($trabajador->estado=="Expulsado" ? 'selected="selected"' : '');?>>Expulsado</option>
+                </select>
                 
             </div>
 
