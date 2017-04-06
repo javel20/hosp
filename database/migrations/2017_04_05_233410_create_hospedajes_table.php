@@ -16,9 +16,17 @@ class CreateHospedajesTable extends Migration
         Schema::create('hospedajes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo');
-            $table->string('fechai');
-            $table->string('fechaf');
-            $table->string('costo');
+            $table->string('fechai',10);
+            $table->string('fechaf',10);
+            $table->string('costo', 7,2);
+            $table->string('estado',30);
+            $table->string('descripcion',30)->nullable;
+            $table->integer('cliente_id')->unsigned();
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->integer('trabajador_id')->unsigned();
+            $table->foreign('trabajador_id')->references('id')->on('trabajadors');
+            $table->integer('habitacion_id')->unsigned();
+            $table->foreign('habitacion_id')->references('id')->on('habitacions');
             $table->timestamps();
         });
     }
