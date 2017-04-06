@@ -55,6 +55,21 @@ class TrabajadorsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
+            'direccion' => 'required|min:3|max:60',    
+            'celular' => 'required',  
+            'operador' => 'required',  
+            'estado' => 'required',  
+            'descripcion' => 'max:100'
+
+        ]);
+
+
         $trabajador=new Trabajador;
 
         $trabajador->nombre = $request->nombre;

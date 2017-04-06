@@ -28,6 +28,11 @@ class Trabajador extends Model
     {
         return $this->hasMany(Licencia::class);
     }
+
+    public function trabajador()
+    {
+        return $this->hasMany('App\Trabajador');
+    }
     
 
     public function scopeTrabajadors($query)

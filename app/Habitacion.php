@@ -11,6 +11,11 @@ class Habitacion extends Model
         return $this->belongsTo('hosp\Tipohabitacion');
     }
 
+    public function hospedaje()
+    {
+        return $this->hasMany('App\Hospedaje');
+    }
+
     public function scopeHabitacions($query)
     {
         return $query->join('tipohabitacions', 'habitacions.tipohabitacion_id', '=' ,'tipohabitacions.id')
