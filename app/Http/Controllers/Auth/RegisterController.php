@@ -67,4 +67,13 @@ class RegisterController extends Controller
             'estado' => "Habilitado",
         ]);
     }
+
+
+    // public function lista_usuario()
+    // {
+    //     $users = User::All();
+    //     return view("users.index")->with([
+    //          'users' => $users
+    //     ]);
+    // }
 }

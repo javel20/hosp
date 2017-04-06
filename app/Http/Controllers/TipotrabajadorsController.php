@@ -18,7 +18,9 @@ class TipotrabajadorsController extends Controller
     public function index()
     {
         $tipotrabajadors = Tipotrabajador::All();
-        return view("tipotrabajadors.index", ["tipotrabajadors"=> $tipotrabajadors]);
+        return view("tipotrabajadors.index")->with([
+            'tipotrabajadors'=> $tipotrabajadors
+            ]);
     }
 
     /**
@@ -29,7 +31,9 @@ class TipotrabajadorsController extends Controller
     public function create()
     {
         $tipotrabajador=new Tipotrabajador;
-        return view("tipotrabajadors.create",["tipotrabajador"=>$tipotrabajador]);
+        return view("tipotrabajadors.create")->with([
+            'tipotrabajador'=>$tipotrabajador
+            ]);
     }
 
     /**
@@ -72,7 +76,9 @@ class TipotrabajadorsController extends Controller
     public function edit($id)
     {
         $tipotrabajador= Tipotrabajador::find($id);
-        return view("tipotrabajadors.edit",["tipotrabajador"=>$tipotrabajador]);
+        return view("tipotrabajadors.edit")->with([
+            'tipotrabajador'=>$tipotrabajador
+            ]);
     }
 
     /**

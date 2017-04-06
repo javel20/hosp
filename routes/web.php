@@ -34,4 +34,5 @@ Route::resource('licencias','LicenciasController');
 
 Auth::routes();
 
+// Route::get('Users','App\Http\Controllers\Auth\RegisterController@lista_usuario');
 Route::get('/home', 'HomeController@index');

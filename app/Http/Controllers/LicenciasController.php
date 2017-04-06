@@ -52,22 +52,22 @@ class LicenciasController extends Controller
                 
             $fechar = $_POST['fechai'];
             $array = explode('/', $fechar);
-            $fecha_php =  $array[2] ."-". $array[1] ."-". $array[0];
+            $fecha_phpi =  $array[2] ."-". $array[1] ."-". $array[0];
             // die($fecha_php);
             // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
             
-            $this->fechai    =  strval(trim($fecha_php));
+            $this->fechai    =  strval(trim($fecha_phpi));
 
             $fechai=strftime( "%Y-%m-%d", time() );
             $this->FechaRegistro    =  $fechai;
 
             $fechar = $_POST['fechaf'];
             $array = explode('/', $fechar);
-            $fecha_php =  $array[2] ."-". $array[1] ."-". $array[0];
+            $fecha_phpf =  $array[2] ."-". $array[1] ."-". $array[0];
             // die($fecha_php);
             // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
             
-            $this->fechaf    =  strval(trim($fecha_php));
+            $this->fechaf    =  strval(trim($fecha_phpf));
 
             $fechaf=strftime( "%Y-%m-%d", time() );
             $this->FechaRegistro    =  $fechaf;
@@ -113,10 +113,10 @@ class LicenciasController extends Controller
      */
     public function edit($id)
     {
-        $licencias = Licencia::find($id);
+        $licencia = Licencia::find($id);
         $trabajadors = Trabajador::all();
         return view("licencias.edit")->with([
-             'licencias' => $licencias, 
+             'licencia' => $licencia, 
              'trabajadors' => $trabajadors
         ]);
     }
@@ -131,7 +131,7 @@ class LicenciasController extends Controller
     public function update(Request $request, $id)
     {
 
-        $licencias = Licencia::find($id);
+        $licencia = Licencia::find($id);
 
         $fechai = $_POST['fechai'];
         $pos = preg_match('/[\/]+/',$fechai);
@@ -153,6 +153,7 @@ class LicenciasController extends Controller
                 $fecha_phpf = $fechaf; 
         }
 
+        // dd(strval(trim($fecha_phpf)));    
         
         $licencia->nombre = $request->nombre;
         $licencia->fechai = strval(trim($fecha_phpi));

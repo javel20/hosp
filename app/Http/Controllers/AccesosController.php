@@ -4,6 +4,10 @@ namespace hosp\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use hosp\Http\Requests;
+
+use hosp\Acceso;
+
 class AccesosController extends Controller
 {
     /**
@@ -13,7 +17,10 @@ class AccesosController extends Controller
      */
     public function index()
     {
-        //
+        $accesos = Acceso::All();
+        return view('accesos.index')->with([
+            'accesos' => $accesos
+        ]);
     }
 
     /**
@@ -23,7 +30,10 @@ class AccesosController extends Controller
      */
     public function create()
     {
-        //
+        $acceso = new Acceso;
+        return view("accesos.create")->with([
+            'acceso' => $acceso
+        ]);
     }
 
     /**
@@ -34,7 +44,15 @@ class AccesosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $acceso = new Acceso;
+
+        $acceso->nombre = $request->nombre;
+
+        if($acceso->save()){
+            return redirect("/accesos");
+        }else{
+            return view("/accesos.create",["acceso" => $acceso]);
+        }
     }
 
     /**
@@ -56,7 +74,10 @@ class AccesosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $acceso = Acceso::find($id);
+        return view("accesos.edit")->with([
+            'acceso' =>$acceso
+        ]);
     }
 
     /**
@@ -68,7 +89,9 @@ class AccesosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $acceso= Acceso::find($id);
+
+        $acceso->dni = $request->dni;
     }
 
     /**
@@ -79,6 +102,7 @@ class AccesosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Acceso::Destroy($id);
+        return redirect('/accesos');
     }
 }

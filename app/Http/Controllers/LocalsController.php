@@ -18,7 +18,9 @@ class LocalsController extends Controller
     public function index()
     {
         $locals = Local::All();
-        return view("locals.index", ["locals"=> $locals]);
+        return view("locals.index")->with([
+            "locals"=> $locals
+            ]);
     }
 
     /**

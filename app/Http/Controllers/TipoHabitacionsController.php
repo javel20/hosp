@@ -18,7 +18,9 @@ class TipoHabitacionsController extends Controller
     public function index()
     {
         $tipohabitacions = Tipohabitacion::All();
-        return view("tipohabitacions.index", ["tipohabitacions"=> $tipohabitacions]);
+        return view("tipohabitacions.index")->with([
+            'tipohabitacions'=> $tipohabitacions
+            ]);
     }
 
     /**
@@ -29,7 +31,9 @@ class TipoHabitacionsController extends Controller
     public function create()
     {
         $tipohabitacion=new Tipohabitacion;
-        return view("tipohabitacions.create",["tipohabitacion"=>$tipohabitacion]);
+        return view("tipohabitacions.create")->with([
+            'tipohabitacion'=>$tipohabitacion
+            ]);
     }
 
     /**
@@ -81,7 +85,9 @@ class TipoHabitacionsController extends Controller
     public function edit($id)
     {
         $tipohabitacion= Tipohabitacion::find($id);
-        return view("tipohabitacions.edit",["tipohabitacion"=>$tipohabitacion]);
+        return view("tipohabitacions.edit")->with([
+            'tipohabitacion'=>$tipohabitacion
+            ]);
     }
 
     /**

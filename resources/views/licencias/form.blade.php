@@ -46,7 +46,7 @@
                 <select class="form-control" name="trabajador" id="trabajador" value={{$licencia->trabajador_id}}>
                         <option value="">--seleccionar--</option>
                 @foreach ($trabajadors as $trab)
-                        @if($licencia->tipolicencia_id==$trab->id)
+                        @if($licencia->trabajador_id==$trab->id)
                             <option value={{$trab->id}} selected> {{$trab->nombre}} </option>
                             @else
                             <option value={{$trab->id}}> {{$trab->nombre}} </option>

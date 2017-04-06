@@ -6,7 +6,7 @@
     
         <h1>Editar Licencias</h1>
 
-            @include('licencias.form',['licencia'=>$licencias, 'url' => '/licencias/'.$licencias->id, 'method' => 'PATCH'])
+            @include('licencias.form',['licencia'=>$licencia, 'url' => '/licencias/'.$licencia->id, 'method' => 'PATCH'])
 
     </div>
 

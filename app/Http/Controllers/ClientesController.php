@@ -18,7 +18,9 @@ class ClientesController extends Controller
     public function index()
     {
         $clientes = Cliente::All();
-        return view("clientes.index", ["clientes"=> $clientes]);
+        return view("clientes.index")->with([
+            'clientes' => $clientes
+            ]);
     }
 
     /**
@@ -28,8 +30,10 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        $cliente=new Cliente;
-        return view("clientes.create",["cliente"=>$cliente]);
+        $cliente = new Cliente;
+        return view("clientes.create")->with([
+            'cliente' => $cliente
+            ]);
     }
 
     /**
@@ -81,7 +85,9 @@ class ClientesController extends Controller
     public function show($id)
     {
         $cliente = Cliente::find($id);
-        return view('clientes.show',['cliente' => $cliente]);
+        return view('clientes.show')->with([
+            'cliente' => $cliente
+            ]);
     }
 
     /**
@@ -93,7 +99,9 @@ class ClientesController extends Controller
     public function edit($id)
     {
         $cliente= Cliente::find($id);
-        return view("clientes.edit",["cliente"=>$cliente]);
+        return view("clientes.edit")->with([
+            'cliente' => $cliente
+            ]);
     }
 
     /**
