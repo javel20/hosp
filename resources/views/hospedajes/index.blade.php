@@ -17,6 +17,7 @@
                     <td>Trabajador</td>
                     <td>Fecha Inicio</td>
                     <td>Fecha Final</td>
+                    <td>Tipo habitacion</td>
                     <td>habitacion</td>
                     <td>Costo</td>
                     <td>Registrador</td>
@@ -33,6 +34,7 @@
                     <td>{{$hospedaje->cliente->nombre}}</td>
                     <td>{{$hospedaje->fechai}}</td>
                     <td>{{$hospedaje->fechaf}}</td>
+                    <td>{{$hospedaje->tipohabitacion->nombre}}</td>
                     <td>{{$hospedaje->habitacion->numero}}</td>
                     <td>{{$hospedaje->costo}}</td>
                     <td>{{$hospedaje->trabajador->nombre}}</td>

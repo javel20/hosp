@@ -15,12 +15,12 @@ class CreateHospedajesTable extends Migration
     {
         Schema::create('hospedajes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('codigo');
+            $table->string('codigo')->unique();
             $table->string('fechai',10);
             $table->string('fechaf',10);
             $table->string('costo', 7,2);
             $table->string('estado',30);
-            $table->string('descripcion',30)->nullable;
+            $table->string('descripcion',30)->nullable();
             $table->integer('cliente_id')->unsigned();
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->integer('trabajador_id')->unsigned();

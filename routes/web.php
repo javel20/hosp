@@ -32,6 +32,7 @@ Route::resource('tipotrabajadors','TipotrabajadorsController');
 Route::resource('trabajadors','TrabajadorsController');
 Route::resource('licencias','LicenciasController');
 Route::resource('hospedajes','HospedajesController');
+Route::resource('accesos','AccesosController');
 
 Auth::routes();
 

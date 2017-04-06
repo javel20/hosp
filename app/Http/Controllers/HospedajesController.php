@@ -10,6 +10,7 @@ use hosp\Hospedaje;
 use hosp\Trabajador;
 use hosp\Cliente;
 use hosp\Habitacion;
+use hosp\Tipohabitacion;
 
 class HospedajesController extends Controller
 {
@@ -22,7 +23,7 @@ class HospedajesController extends Controller
     {
         $hospedajes = Hospedaje::all();
         return view('hospedajes.index')->with([
-            'hospedaje' => $hospedaje
+            'hospedajes' => $hospedajes
         ]);
     }
 
@@ -36,9 +37,11 @@ class HospedajesController extends Controller
         $hospedaje = new Hospedaje;
         $trabajadors = Trabajador::all();
         $clientes = Cliente::all();
+        $tipohabitacions = Tipohabitacion::all();
         $habitacions = Habitacion::all();
-        return view("licencias.create")->with([
-             'licencia' => $licencia, 
+        return view("hospedajes.create")->with([
+             'hospedaje' => $hospedaje,
+             'tipohabitacions' => $tipohabitacions,
              'trabajadors' => $trabajadors,
              'clientes' => $clientes,
              'habitacions' => $habitacions
@@ -70,7 +73,7 @@ class HospedajesController extends Controller
             return redirect("/hospedajes");
         }else{
             //  dd($hospedaje);
-            return view("/hospedajes.edit");
+            return view("/hospedajes.create");
         }
     }
 
@@ -96,9 +99,11 @@ class HospedajesController extends Controller
         $hospedaje = Hospedaje::find($id);
         $trabajadors = Trabajador::all();
         $clientes = Cliente::all();
+        $tipohabitacions = TipoHabitacion::all();
         $habitacions = Habitacion::all();
         return view("licencias.create")->with([
              'licencia' => $licencia, 
+             'tipotrabajadors' => $tipotrabajadors,
              'trabajadors' => $trabajadors,
              'clientes' => $clientes,
              'habitacions' => $habitacions

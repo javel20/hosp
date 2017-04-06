@@ -17,9 +17,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($permisos as $perm)
+            @foreach($accesos as $acceso)
             <tr>
-                <td>{{$perm->nombre}}</td>
+                <td>{{$acceso->nombre}}</td>
                
             </tr>
             @endforeach
