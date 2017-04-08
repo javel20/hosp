@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/users') }}">
                         {{ csrf_field() }}
 
 
@@ -49,6 +49,23 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"> Trabajador</label>
+                                <div class="col-md-6">
+                                    <select id="trabajador" class="form-control" name="trabajador"  value={{$users->trabajador_id}}>
+                                            <option value="">--seleccionar--</option>
+                                    @foreach ($trabajador as $trab)
+                                            @if($users->trabajador_id==$trab->id)
+                                                <option value={{$trab->id}} selected> {{$trab->nombre}} </option>
+                                                @else
+                                                <option value={{$trab->id}}> {{$trab->nombre}} </option>
+                                            @endif
+                                    @endforeach
+                                    </select>
+                                </div>
+
+                            </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

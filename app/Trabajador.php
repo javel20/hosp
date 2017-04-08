@@ -37,10 +37,18 @@ class Trabajador extends Model
 
     public function scopeTrabajadors($query)
     {
-        return $query->join('users', 'trabajadors.user_id', '=' ,'users.id')
-                    ->join('locals', 'trabajadors.local_id', '=' ,'locals.id')
+        return $query->join('locals', 'trabajadors.local_id', '=' ,'locals.id')
                     ->join('tipotrabajadors', 'trabajadors.tipotrabajador_id', '=' ,'tipotrabajadors.id')
-                    ->select('trabajadors.*', 'tipotrabajadors.nombre as nombrett', 'locals.nombre as nombrel','users.email as emailu')
+                    ->select('trabajadors.*', 'tipotrabajadors.nombre as nombrett', 'locals.nombre as nombrel')
+                    ->get();
+
+    }
+
+    public function scopeListaTrabajador($query){
+
+        return $query->leftJoin('users', 'users.trabajador_id', '=', 'trabajadors.id')
+                    ->where('users.id', '=' , null)
+                    ->select('trabajadors.*', 'users.id as iduser')
                     ->get();
 
     }

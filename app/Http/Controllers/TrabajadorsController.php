@@ -81,7 +81,7 @@ class TrabajadorsController extends Controller
         $trabajador->estado = $request->estado;
         $trabajador->tipotrabajador_id = $request->tipotrab;
         $trabajador->local_id = $request->local;
-        $trabajador->user_id = $request->user;
+        
 
        
 
@@ -147,7 +147,7 @@ class TrabajadorsController extends Controller
         $trabajador->estado = $request->estado;
         $trabajador->tipotrabajador_id = $request->tipotrab;
         $trabajador->local_id = $request->local;
-        $trabajador->user_id = $request->user;
+        
        
 
         if($trabajador->save()){

@@ -26,8 +26,6 @@ class CreateTrabajadorsTable extends Migration
             $table->foreign('local_id')->references('id')->on('locals');
             $table->integer('tipotrabajador_id')->unsigned();
             $table->foreign('tipotrabajador_id')->references('id')->on('tipotrabajadors');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->rememberToken();
             $table->timestamps();
         });

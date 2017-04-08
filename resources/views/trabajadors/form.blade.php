@@ -93,21 +93,7 @@
 
             </div>
 
-            <div class="form-group col-md-6">
-            <label>Usuario</label>
 
-                <select class="form-control" name="user" id="users" value={{$trabajador->user_id}}>
-                            <option value="seleccionar">--seleccionar--</option>
-                @foreach ($users as $user)
-                        @if($trabajador->user_id==$user->id)
-                            <option value={{$user->id}} selected> {{$user->email}} </option>
-                            @else
-                            <option value={{$user->id}}> {{$user->email}} </option>
-                        @endif
-                @endforeach
-                </select>
-
-            </div>
             
 
             <div class="form-group text-right">

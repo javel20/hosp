@@ -22,7 +22,6 @@
                     <td>Estado</td>
                     <td>Tipo Trabajador</td>
                     <td>Local</td>
-                    <td>Usuario</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -38,7 +37,8 @@
                     <td>{{$trabajador->estado}}</td>
                     <td>{{$trabajador->tipotrabajador->nombre}}</td>
                     <td>{{$trabajador->local->nombre}}</td>
-                    <td>{{$trabajador->user->email}}</td>
+                    
+
                     <td>
                         <a href="{{url('/trabajadors/'.$trabajador->id.'/edit')}}">Editar</a>
                         @include('trabajadors.delete',['trabajador' => $trabajador])
