@@ -17,8 +17,14 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $trabajadors = Trabajador::ListaTrabajador();
+        $users = User::Users();
+        // $trabajadors = Trabajador::ListaTrabajador();
         // dd($trabajadors);
+        return view("users.index")->with([
+            'users' => $users,
+            // 'trabajador' => $trabajador
+
+        ]);
     }
 
     /**

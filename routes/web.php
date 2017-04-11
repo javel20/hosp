@@ -32,6 +32,7 @@ Route::resource('tipotrabajadors','TipotrabajadorsController');
 Route::resource('trabajadors','TrabajadorsController');
 Route::resource('licencias','LicenciasController');
 Route::resource('hospedajes','HospedajesController');
+Route::get('habitacionAjax','HospedajesController@habitacionAjax');
 Route::resource('accesos','AccesosController');
 Route::resource('users','UsersController');
 

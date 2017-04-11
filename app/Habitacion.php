@@ -24,4 +24,11 @@ class Habitacion extends Model
 
     }
 
+    public function scopehabitacionajax($query,$id)
+    {
+    return $query->where('tipohabitacion_id', '=' ,$id)
+                    ->select('habitacions.*')
+                    ->get();
+    }
+
 }

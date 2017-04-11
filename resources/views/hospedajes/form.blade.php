@@ -51,6 +51,18 @@
 
             </div>
 
+            <div class="form-group col-md-6">
+            <label>Precio por día</label>
+                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control','readonly'=>'readonly' , 'placeholder'=>'S/.','maxlength'=>'8'])}}
+
+            </div>
+
+            <div class="form-group col-md-6">
+            <label>Precio total</label>
+                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control','readonly'=>'readonly' , 'placeholder'=>'S/.','maxlength'=>'8'])}}
+
+            </div>
+
 
             <div class="form-group col-md-6">
             <label>Habitacion</label>
@@ -59,9 +71,9 @@
                         <option value="">--seleccionar--</option>
                 @foreach ($habitacions as $habit)
                         @if($hospedaje->habitacion_id==$habit->id)
-                            <option value={{$habit->id}} selected> {{$habit->nombre}} </option>
+                            <option value={{$habit->id}} selected> {{$habit->numero}} </option>
                             @else
-                            <option value={{$habit->id}}> {{$habit->nombre}} </option>
+                            <option value={{$habit->id}}> {{$habit->numero}} </option>
                         @endif
                 @endforeach
                 </select>

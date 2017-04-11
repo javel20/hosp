@@ -24,6 +24,7 @@
                 <tr>
                     <td>{{$user->email}}</td>
                     <td>{{$user->estado}}</td>
+                    
  
                     <td>
                         <a href="{{url('/users/'.$user->id.'/edit')}}">Editar</a>

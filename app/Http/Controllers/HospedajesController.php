@@ -48,6 +48,13 @@ class HospedajesController extends Controller
         ]);
     }
 
+    public function habitacionAjax($id){
+
+        $habitacion = Habitacion::habitacionajax($id);
+        return $habitacion;
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *

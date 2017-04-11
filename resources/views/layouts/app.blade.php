@@ -71,9 +71,13 @@
                         @endif
                     </ul>
                 </div>
+
+
             </div>
         </nav>
+        @include('layouts.menu')
 
+            
 
         @yield('content')
     </div>
