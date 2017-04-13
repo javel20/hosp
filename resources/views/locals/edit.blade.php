@@ -2,7 +2,7 @@
 
 @section("content")
 
-    <div class="">
+    <div class="container col-sm-9 col-md-9">
     
         <h1>Editar Local</h1>
 

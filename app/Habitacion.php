@@ -24,10 +24,10 @@ class Habitacion extends Model
 
     }
 
-    public function scopehabitacionajax($query,$id)
+    //traigo las habitaciones que tengan el mismo id tipohabitacion
+    public function scopehabitacionAjax($query,$id)
     {
-    return $query->where('tipohabitacion_id', '=' ,$id)
-                    ->select('habitacions.*')
+    return $query->where('tipohabitacion_id', $id)
                     ->get();
     }
 

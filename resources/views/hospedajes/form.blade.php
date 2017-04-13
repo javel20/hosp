@@ -9,7 +9,7 @@
             <div class="form-group col-md-6">
             <label>Cliente</label>
 
-                <select class="form-control" name="tipohab" id="tipohab" value={{$hospedaje->cliente_id}}>
+                <select class="form-control" name="cliente" id="cliente" value={{$hospedaje->cliente_id}}>
                         <option value="">--seleccionar--</option>
                 @foreach ($clientes as $cliente)
                         @if($hospedaje->cliente_id==$cliente->id)
@@ -42,9 +42,9 @@
                         <option value="">--seleccionar--</option>
                 @foreach ($tipohabitacions as $th)
                         @if($hospedaje->tipohabitacion_id==$th->id)
-                            <option value={{$th->id}} selected> {{$th->nombre}} </option>
+                            <option precio={{$th->precio}} value={{$th->id}} selected> {{$th->nombre}} </option>
                             @else
-                            <option value={{$th->id}}> {{$th->nombre}} </option>
+                            <option precio={{$th->precio}} value={{$th->id}}> {{$th->nombre}} </option>
                         @endif
                 @endforeach
                 </select>
@@ -53,7 +53,7 @@
 
             <div class="form-group col-md-6">
             <label>Precio por día</label>
-                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control','readonly'=>'readonly' , 'placeholder'=>'S/.','maxlength'=>'8'])}}
+                <input type="text" class="form-control" readonly="readonly"  name="precio" id="precio" placeholder="S/." maxlength="8" value={{$hospedaje->habitacion_id}}>
 
             </div>
 
@@ -67,15 +67,15 @@
             <div class="form-group col-md-6">
             <label>Habitacion</label>
 
-                <select class="form-control" name="tipohab" id="tipohab" value={{$hospedaje->habitacion_id}}>
+                <select class="form-control" name="habit" id="habit" value={{$hospedaje->habitacion_id}}>
                         <option value="">--seleccionar--</option>
-                @foreach ($habitacions as $habit)
+                <!--@foreach ($habitacions as $habit)
                         @if($hospedaje->habitacion_id==$habit->id)
                             <option value={{$habit->id}} selected> {{$habit->numero}} </option>
                             @else
                             <option value={{$habit->id}}> {{$habit->numero}} </option>
                         @endif
-                @endforeach
+                @endforeach-->
                 </select>
 
             </div>
@@ -100,14 +100,12 @@
                 
             </div>
 
-            
-            </div>
-
-            
 
             <div class="form-group text-right">
                 <a href="{{url('/hospedajes')}}">Regresar al listado de hospedaje</a>
                 <input type="submit" value="Enviar" class="btn btn-success">
             </div>
+        
+        </div>
 
         {!! Form::close() !!}

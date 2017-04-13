@@ -13,8 +13,8 @@ class TipohabitacionTableSeeder extends Seeder
     public function run()
     {
         Tipohabitacion::create(['nombre' => 'Simple', 'precio'=>'100', 'descripcion'=>'asd']);
-        Tipohabitacion::create(['nombre' => 'Doble', 'precio'=>'100', 'descripcion'=>'asd']);
-        Tipohabitacion::create(['nombre' => 'triple', 'precio'=>'100', 'descripcion'=>'asd']);
-        Tipohabitacion::create(['nombre' => 'Presidencial', 'precio'=>'100', 'descripcion'=>'asd']);
+        Tipohabitacion::create(['nombre' => 'Doble', 'precio'=>'150', 'descripcion'=>'asd']);
+        Tipohabitacion::create(['nombre' => 'triple', 'precio'=>'180', 'descripcion'=>'asd']);
+        Tipohabitacion::create(['nombre' => 'Presidencial', 'precio'=>'220', 'descripcion'=>'asd']);
     }
 }

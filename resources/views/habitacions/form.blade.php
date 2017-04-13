@@ -1,20 +1,20 @@
 {!!Form::open(['url' => $url, 'method' => $method])!!}
 
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 col-sm-10">
             <label>Numero de Habitacion:</label>
                 {{Form::text('numero',$habitacion->numero,['class' => 'form-control', 'placeholder'=>'numeros','maxlength'=>'60'])}}
                 
             </div>
 
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 col-sm-10">
             <label>Vigencia</label>
                 {{Form::text('vigencia',$habitacion->vigencia,['class' => 'form-control', 'placeholder'=>'vigencia','maxlength'=>'15'])}}
                 
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 col-sm-10">
             <label>Estado</label>
                 <select class="form-control" name="estado" id="estado" value={{$habitacion->estado}}>
                     <option value="">--seleccionar--</option>
@@ -25,13 +25,13 @@
             </div>
 
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 col-sm-10">
             <label>Descripcion</label>
                 {{Form::text('descripcion',$habitacion->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'100'])}}
                 
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 col-sm-10">
             <label>Tipo Habitacion</label>
 
                 <select class="form-control" name="tipoh" id="tipoh" value={{$habitacion->tipohabitacion_id}}>
@@ -47,11 +47,15 @@
 
             </div>
 
-            
-
+        </div>
+        <br>
+        <div class="form-group col-md-9 col-sm-10">
             <div class="form-group text-right">
+                <br>
                 <a href="{{url('/habitacions')}}">Regresar al listado de Habitacion</a>
                 <input type="submit" value="Enviar" class="btn btn-success">
             </div>
+
+        </div>
 
         {!! Form::close() !!}

@@ -38,6 +38,7 @@ class HospedajesController extends Controller
         $trabajadors = Trabajador::all();
         $clientes = Cliente::all();
         $tipohabitacions = Tipohabitacion::all();
+        // dd($tipohabitacions);
         $habitacions = Habitacion::all();
         return view("hospedajes.create")->with([
              'hospedaje' => $hospedaje,
@@ -48,9 +49,10 @@ class HospedajesController extends Controller
         ]);
     }
 
-    public function habitacionAjax($id){
+    public function habitacionAjax(Request $request){
 
-        $habitacion = Habitacion::habitacionajax($id);
+        $habitacion = Habitacion::habitacionAjax($request->id);
+        //  dd($habitacion);
         return $habitacion;
 
     }

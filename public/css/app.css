@@ -1,2 +1,20 @@
 
 /*# sourceMappingURL=app.css.map */
+
+.menu{
+    width: 100%;
+    /*color: white !important;*/
+}
+
+.menua{
+
+    color: white !important;
+
+}
+
+.menua:hover{
+
+    color: white !important;
+    background: #19A094!important;
+
+}
