@@ -3,6 +3,8 @@
 namespace hosp\Http\Controllers\Auth;
 
 use hosp\User;
+use hosp\Trabajador;
+
 use hosp\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use hosp\Http\Requests;
 use hosp\User;
 use hosp\Trabajador;
+use hosp\Acceso;
 
 class UsersController extends Controller
 {
@@ -36,10 +37,12 @@ class UsersController extends Controller
     {
         $users = new User;
         $trabajador = Trabajador::ListaTrabajador();
+        $accesos = Acceso::All();
 
         return view("auth.register")->with([
             'users' => $users,
-            'trabajador' => $trabajador
+            'trabajador' => $trabajador,
+            'accesos' => $accesos
 
         ]);
     }
@@ -58,9 +61,12 @@ class UsersController extends Controller
         $user->password = bcrypt($request->password);
         $user->trabajador_id = $request->trabajador;
 
+
         if($user->save()){
             //  dd($user);
-            return redirect("/users.create");
+            $user->accesos()->attach($request->accesos);
+            // dd($user);
+            return redirect("/users");
         }else{
             //  dd($user);
             return view("/users.create");

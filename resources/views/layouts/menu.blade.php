@@ -64,7 +64,7 @@
           <div class="collapse" id="toggleDemo3" style="height: 0px;">
             <ul class="nav nav-list">
               <li><a class="menua" href="{{ url('/hospedajes/create') }}">Crear</a></li>
-              <li><a class="menua" href="{{ url('/clientes') }}">Listado</a></li>
+              <li><a class="menua" href="{{ url('/hospedajes') }}">Listado</a></li>
               
             </ul>
           </div>

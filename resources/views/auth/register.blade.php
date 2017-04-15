@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
+@section('content-css')
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+@endsection
+
 @section('content')
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -67,7 +75,15 @@
 
                             </div>
 
-                        
+                            <div class="form-group col-md-12">
+                            <label class="col-md-4 control-label">Accesos</label>
+                                <select name="accesos[]" id="js-example-tags" class="js-example-tags form-control select2-hidden-accessible acceso" multiple tabindex="-1" aria-hidden="true">
+                                    <?php foreach($accesos as $acceso)
+                                        echo "<option value=" .$acceso->id .">". $acceso->nombre ."</option>";
+                                    ?>
+                                </select>
+                            
+                            </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -82,4 +98,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section("js")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript" src=<?php echo url("js\user\user.js")?>></script>
+
+    
 @endsection

@@ -32,9 +32,9 @@ class User extends Authenticatable
         return $this->hasOne(Trabajador::class);
     }
 
-    public function acceso()
+    public function accesos()
     {
-        return $this->belongsToMany('hosp\Accesso');
+        return $this->belongsToMany('hosp\Acceso');
     }
 
 
