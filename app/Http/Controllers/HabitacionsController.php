@@ -1,6 +1,8 @@
 <?php
 
 namespace hosp\Http\Controllers;
+use Illuminate\Support\Facades\DB;
+use hosp\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 

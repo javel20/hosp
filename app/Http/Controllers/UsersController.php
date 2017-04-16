@@ -4,6 +4,7 @@
 namespace hosp\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use hosp\Http\Requests;
 use hosp\User;
 use hosp\Trabajador;
@@ -11,6 +12,7 @@ use hosp\Acceso;
 
 class UsersController extends Controller
 {
+    use AuthenticatesUsers;
     /**
      * Display a listing of the resource.
      *
@@ -79,6 +81,30 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    public function postLogin(Request $request)
+	{
+		$this->validate($request, [
+			'email' => 'required|email', 'password' => 'required',
+		]);
+ 
+		$credentials = $request->only('email', 'password');
+ 
+		if ($this->auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect()->intended($this->redirectPath());
+		}
+ 
+		return redirect($this->loginPath())
+					->withInput($request->only('email', 'remember'))
+					->withErrors([
+						'email' => $this->getFailedLoginMessage(),
+					]);
+	}
+
+
+
     public function show($id)
     {
         //

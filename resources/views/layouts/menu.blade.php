@@ -1,3 +1,6 @@
+@if(!(Auth::guest()))
+
+
 <div class="">
     <div class="col-sm-3 col-md-2">
 		<div class="sidebar-nav menucontorno">
@@ -14,7 +17,7 @@
       <span class="visible-xs navbar-brand">Control Panel</span>
     </div>
 
-
+<br>
     <div class="navbar-collapse collapse sidebar-navbar-collapse">
       <ul class="nav navbar-nav" id="sidenav01">
         <li class="active menu">
@@ -23,9 +26,10 @@
           </a>
          
         </li>
+  @foreach(session("accesos") as $acceso)
 
-                
 
+    @if($acceso->pivot->acceso_id==1)     
        <li class="menu"> 
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-chevron-right"></span> Cliente <span class="caret pull-right"></span>
@@ -39,9 +43,10 @@
             </ul>
           </div>
         </li>
+      @endif
 
 
-
+      @if($acceso->pivot->acceso_id==2)
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-chevron-right"></span> Habitaciones <span class="caret pull-right"></span>
@@ -54,9 +59,10 @@
             </ul>
           </div>
         </li>
+        @endif
 
 
-
+      @if($acceso->pivot->acceso_id==3)
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-chevron-right"></span> Hospedaje <span class="caret pull-right"></span>
@@ -69,9 +75,10 @@
             </ul>
           </div>
         </li>
+       @endif
 
 
-
+       @if($acceso->pivot->acceso_id==4)
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-plane"></span> Licencia <span class="caret pull-right"></span>
@@ -84,9 +91,10 @@
             </ul>
           </div>
         </li>
+      @endif
 
 
-
+      @if($acceso->pivot->acceso_id==5)
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-chevron-right"></span> Locales <span class="caret pull-right"></span>
@@ -99,9 +107,10 @@
             </ul>
           </div>
         </li>
+      @endif
 
 
-
+      @if($acceso->pivot->acceso_id==6)
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo6" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-chevron-right"></span> Tipo Habitaciones <span class="caret pull-right"></span>
@@ -114,7 +123,9 @@
             </ul>
           </div>
         </li>
+        @endif
 
+        @if($acceso->pivot->acceso_id==7)
 
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo7" data-parent="#sidenav01" class="collapsed">
@@ -128,8 +139,10 @@
             </ul>
           </div>
         </li>
+        @endif
 
 
+        @if($acceso->pivot->acceso_id==8)
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo8" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-tags"></span> Trabajadores <span class="caret pull-right"></span>
@@ -138,11 +151,12 @@
             <ul class="nav nav-list">
               <li><a class="menua" href="{{ url('/trabajadors/create') }}">Crear</a></li>
               <li><a class="menua" href="{{ url('/trabajadors') }}">Listado</a></li>
-              '    </ul>
+            </ul>
           </div>
         </li>
+        @endif
 
-
+        @if($acceso->pivot->acceso_id==9)
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo9" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-tags"></span> Usuarios <span class="caret pull-right"></span>
@@ -155,7 +169,9 @@
             </ul>
           </div>
         </li>
+        @endif
 
+@endforeach
         
 
         <!--<li class="active"><a href=""><span class="glyphicon glyphicon-cog"></span> Administrador</a></li>-->
@@ -164,3 +180,6 @@
     </div>
   </div>
 	</div>
+
+
+@endif

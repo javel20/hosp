@@ -10,7 +10,11 @@
 
             <div class="form-group col-md-6 col-sm-10">
             <label>Vigencia</label>
-                {{Form::text('vigencia',$habitacion->vigencia,['class' => 'form-control', 'placeholder'=>'vigencia','maxlength'=>'15'])}}
+                <select class="form-control" name="vigencia" id="vigencia" value={{$habitacion->vigencia}}>
+                    <option value="">--seleccionar--</option>
+                    <option value="Activo" <?php echo ($habitacion->vigencia=="Activo" ? 'selected="selected"' : '');?>>Activo</option>
+                    <option value="Inactivo" <?php echo ($habitacion->vigencia=="Inactivo" ? 'selected="selected"' : '');?>>Inactivo</option>
+                </select>
                 
             </div>
 
@@ -18,9 +22,10 @@
             <label>Estado</label>
                 <select class="form-control" name="estado" id="estado" value={{$habitacion->estado}}>
                     <option value="">--seleccionar--</option>
-                    <option value="Habilitado" <?php echo ($habitacion->estado=="Habilitado" ? 'selected="selected"' : '');?>>Habilitado</option>
+                    <option value="Disponible" <?php echo ($habitacion->estado=="Disponible" ? 'selected="selected"' : '');?>>Disponible</option>
                     <option value="Ocupado" <?php echo ($habitacion->estado=="Ocupado" ? 'selected="selected"' : '');?>>Ocupado</option>
                     <option value="Mantenimiento" <?php echo ($habitacion->estado=="Mantenimiento" ? 'selected="selected"' : '');?>>Mantenimiento</option>
+                    <option value="Reservado" <?php echo ($habitacion->estado=="Reservado" ? 'selected="selected"' : '');?>>Reservado</option>
                 </select>
             </div>
 

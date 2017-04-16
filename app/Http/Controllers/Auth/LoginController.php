@@ -2,8 +2,13 @@
 
 namespace hosp\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use hosp\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
+use Validator;
+use hosp\User;
 
 class LoginController extends Controller
 {
@@ -36,4 +41,49 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    public function authenticate(Request $request)
+    {
+        // dd("asdasd");
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            // Authentication passed...
+            return redirect()->intended('dashboard');
+        }
+    }
+
+
+    public function postLogin(Request $request)
+	{
+	/*	$data = $this->validate($request, [
+			'email' => 'required|email', 'password' => 'required',
+		]);*/
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+   
+		$credentials = $request->only('email', 'password');
+        // dd($credentials);
+		if (Auth::attempt($credentials, $request->has('remember')))
+		{
+            $accesos = Auth::user()->accesos;
+
+            $request->session()->put('accesos', $accesos );
+           // dd($request);
+			return redirect()->intended($this->redirectPath());
+		}
+
+        // dd($request->only('email', 'remember'));
+        $usuario_email = User::where('email', $request->email)->first();
+        $usuario_password = User::where('password', $request->password)->first();
+       // dd($usuario);
+		return redirect("/login")
+					->withInput($request->only('email', 'remember'))
+                    ->withInput($request->only('password', 'remember'))
+					->withErrors([
+                        
+						$usuario_email ? "" : "email" =>  Lang::get('auth.failed'),
+                        $usuario_password ? "" : "password" =>  Lang::get('auth.failedd'),
+					]);
+	}
 }

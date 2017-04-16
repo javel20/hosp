@@ -36,6 +36,8 @@ Route::get('habitacionAjax','HospedajesController@habitacionAjax');
 Route::resource('accesos','AccesosController');
 Route::resource('users','UsersController');
 
+Route::post('userLogeo','Auth\LoginController@postLogin');
+
 Auth::routes();
 
 // Route::get('Users','App\Http\Controllers\Auth\RegisterController@lista_usuario');
