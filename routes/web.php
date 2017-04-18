@@ -13,7 +13,9 @@
 
 Route::get('/', 'MainController@home');
 
-Route::resource('clientes','ClientesController');
+Route::group(['middleware' => ['permiso:1']], function () {
+    Route::resource('clientes','ClientesController');
+});
 /*
 get/clientes index
 post/clientes store
@@ -25,16 +27,44 @@ put/patch/clientes/id
 delete/cliente/id
 */
 
-Route::resource('tipohabitacions','TipoHabitacionsController');
-Route::resource('habitacions','HabitacionsController');
-Route::resource('locals','LocalsController');
-Route::resource('tipotrabajadors','TipotrabajadorsController');
-Route::resource('trabajadors','TrabajadorsController');
-Route::resource('licencias','LicenciasController');
-Route::resource('hospedajes','HospedajesController');
-Route::get('habitacionAjax','HospedajesController@habitacionAjax');
-Route::resource('accesos','AccesosController');
-Route::resource('users','UsersController');
+Route::group(['middleware' => ['permiso:6']], function () {
+    Route::resource('tipohabitacions','TipoHabitacionsController');
+    Route::get('habitacionAjax','HospedajesController@habitacionAjax');
+});
+
+Route::group(['middleware' => ['permiso:2']], function () {
+        Route::resource('habitacions','HabitacionsController');
+});
+
+Route::group(['middleware' => ['permiso:5']], function () {
+    Route::resource('locals','LocalsController');
+});
+
+Route::group(['middleware' => ['permiso:7']], function () {
+    Route::resource('tipotrabajadors','TipotrabajadorsController');
+});
+
+Route::group(['middleware' => ['permiso:8']], function () {
+    Route::resource('trabajadors','TrabajadorsController');
+});
+
+Route::group(['middleware' => ['permiso:4']], function () {
+    Route::resource('licencias','LicenciasController');
+});
+
+Route::group(['middleware' => ['permiso:3']], function () {
+    Route::resource('hospedajes','HospedajesController');
+});
+
+
+
+Route::group(['middleware' => ['permiso:accesos']], function () {
+    Route::resource('accesos','AccesosController');
+});
+
+Route::group(['middleware' => ['permiso:9']], function () {
+    Route::resource('users','UsersController');
+});
 
 Route::post('userLogeo','Auth\LoginController@postLogin');
 

@@ -1,0 +1,41 @@
+<?php
+
+namespace hosp\Http\Middleware;
+
+use hosp\Habitacion;
+use hosp\User;
+
+use Closure;
+
+class Permisos
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next, $perm)
+    {
+        // dd(session("accesos"));
+    $ban='0';
+        if(session("accesos")){
+            foreach(session("accesos") as $acc){
+
+                if($acc->id == $perm){
+                    $ban=+1;
+                    //acceder al id desde acc
+                //  dd("asdasd");
+                return $next($request);
+                }           
+                    
+            }
+        }
+        
+            if($ban==0){
+                // dd("asdasd");
+            return redirect("/home");
+            }
+    }
+}

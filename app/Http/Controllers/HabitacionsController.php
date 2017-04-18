@@ -18,7 +18,7 @@ class HabitacionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $habitacions = Habitacion::All();
 
@@ -30,7 +30,7 @@ class HabitacionsController extends Controller
         //     'habitaciones' => $habitacions
         // ]);
 
-        $habitacions = Habitacion::habitacions();
+        $habitacions = Habitacion::habitacions($request);
         // dd($habitacions);
         return view("habitacions.index")->with([
              'habitaciones' => $habitacions

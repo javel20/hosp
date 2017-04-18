@@ -7,6 +7,8 @@
         
     </div>
 
+    @include("habitacions.buscar")
+
     <div class="table-responsive">
 
         <table class="table table-bordered">
@@ -37,6 +39,7 @@
                 @endforeach
             </tbody>
         </table>
+        <center>{{ $habitaciones->links() }}</center>
 
     </div>
 </div>

@@ -59,6 +59,7 @@
                             <!--<li><a href="{{ url('users/create') }}">Register</a></li>-->
                         @else
                             <li>
+                                        
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

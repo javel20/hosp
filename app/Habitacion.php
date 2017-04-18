@@ -16,11 +16,12 @@ class Habitacion extends Model
         return $this->hasMany('App\Hospedaje');
     }
 
-    public function scopeHabitacions($query)
+    public function scopeHabitacions($query, $dato)
     {
         return $query->join('tipohabitacions', 'habitacions.tipohabitacion_id', '=' ,'tipohabitacions.id')
+                    ->where('numero','LIKE', '%'. $dato->buscar. '%')
                     ->select('habitacions.*', 'tipohabitacions.nombre')
-                    ->get();
+                    ->paginate(7);
 
     }
 
