@@ -10,4 +10,12 @@ class Local extends Model
     {
         return $this->hasMany(Trabajador::class);
     }
+
+    public function scopeLike($query, $dato){
+        // dd($dato);
+        return $query->where('nombre','LIKE', "%$dato->buscar%")
+                    ->orWhere('estado','LIKE', "%$dato->buscar%")
+                    ->paginate(7);
+
+    }
 }

@@ -15,9 +15,9 @@ class TipotrabajadorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tipotrabajadors = Tipotrabajador::All();
+        $tipotrabajadors = Tipotrabajador::like($request);
         return view("tipotrabajadors.index")->with([
             'tipotrabajadors'=> $tipotrabajadors
             ]);

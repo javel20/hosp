@@ -18,9 +18,9 @@ class TrabajadorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $trabajadors = Trabajador::trabajadors();
+        $trabajadors = Trabajador::trabajadors($request);
         // dd($trabajadors);
         return view("trabajadors.index")->with([
              'trabajadors' => $trabajadors

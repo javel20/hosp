@@ -10,4 +10,14 @@ class Tipotrabajador extends Model
     {
         return $this->hasMany(Trabajador::class);
     }
+
+
+    public function scopeLike($query, $dato){
+        // dd($dato);
+        return $query->where('nombre','LIKE', "%$dato->buscar%")
+                    ->paginate(7);
+
+    }
+
+    
 }
