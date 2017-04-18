@@ -7,6 +7,8 @@
         
     </div>
 
+    @include('locals.buscar')
+
     <div class="table-responsive">
 
         <table class="table table-bordered">

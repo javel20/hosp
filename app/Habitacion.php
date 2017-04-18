@@ -18,8 +18,10 @@ class Habitacion extends Model
 
     public function scopeHabitacions($query, $dato)
     {
+        // dd($dato);
         return $query->join('tipohabitacions', 'habitacions.tipohabitacion_id', '=' ,'tipohabitacions.id')
-                    ->where('numero','LIKE', '%'. $dato->buscar. '%')
+                    ->where('numero','LIKE', "%$dato->buscar%")
+                    ->orWhere('estado','LIKE' , "%$dato->buscar%")
                     ->select('habitacions.*', 'tipohabitacions.nombre')
                     ->paginate(7);
 

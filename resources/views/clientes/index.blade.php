@@ -7,6 +7,8 @@
         
     </div>
 
+    @include('clientes.buscar')
+
     <div class="table-responsive">
 
         <table class="table table-bordered">

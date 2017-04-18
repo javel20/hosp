@@ -7,7 +7,7 @@
         
     </div>
 
-    @include("habitacions.buscar")
+    @include('habitacions.buscar')
 
     <div class="table-responsive">
 

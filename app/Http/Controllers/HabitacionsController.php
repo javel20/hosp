@@ -29,7 +29,7 @@ class HabitacionsController extends Controller
         // return view("habitacions.index")->with([
         //     'habitaciones' => $habitacions
         // ]);
-
+// dd($request);
         $habitacions = Habitacion::habitacions($request);
         // dd($habitacions);
         return view("habitacions.index")->with([

@@ -7,6 +7,8 @@
         
     </div>
 
+    @include('trabajadors.buscar')
+
     <div class="table-responsive">
 
         <table class="table table-bordered">

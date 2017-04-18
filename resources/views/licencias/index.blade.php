@@ -7,6 +7,8 @@
         
     </div>
 
+    @include('licencias.buscar')
+
     <div class="table-responsive">
 
         <table class="table table-bordered">

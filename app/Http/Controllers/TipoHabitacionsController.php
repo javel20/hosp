@@ -15,9 +15,9 @@ class TipoHabitacionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tipohabitacions = Tipohabitacion::All();
+        $tipohabitacions = Tipohabitacion::like($request);
         return view("tipohabitacions.index")->with([
             'tipohabitacions'=> $tipohabitacions
             ]);
