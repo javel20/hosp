@@ -49,41 +49,45 @@ class LicenciasController extends Controller
     public function store(Request $request)
     {
 
-                
-            $fechar = $_POST['fechai'];
-            $array = explode('/', $fechar);
-            $fecha_phpi =  $array[2] ."-". $array[1] ."-". $array[0];
-            // die($fecha_php);
-            // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
-            
-            $this->fechai    =  strval(trim($fecha_phpi));
-
-            $fechai=strftime( "%Y-%m-%d", time() );
-            $this->FechaRegistro    =  $fechai;
-
-            $fechar = $_POST['fechaf'];
-            $array = explode('/', $fechar);
-            $fecha_phpf =  $array[2] ."-". $array[1] ."-". $array[0];
-            // die($fecha_php);
-            // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
-            
-            $this->fechaf    =  strval(trim($fecha_phpf));
-
-            $fechaf=strftime( "%Y-%m-%d", time() );
-            $this->FechaRegistro    =  $fechaf;
-
-
-
         $licencia = new Licencia;
+                
+            // $fechar = $_POST['fechai'];
+            // $array = explode('/', $fechar);
+            // $fecha_phpi =  $array[2] ."-". $array[1] ."-". $array[0];
+            // // die($fecha_php);
+            // // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
+            
+            // $licencia->fechai    =  strval(trim($fecha_phpi));
+
+            // $fechaii = strftime( "%Y-%m-%d", time() );
+            // $licencia->fechai = $fechaii;
+
+
+            // dd($fecha_phpi);
+
+
+            // $fechare = $_POST['fechaf'];
+            // $array = explode('/', $fechare);
+            // $fecha_phpf =  $array[2] ."-". $array[1] ."-". $array[0];
+            // // die($fecha_php);
+            // // $date=date('Y-m-d H:i:s', strtotime($fecha_php));
+            
+            // $licencia->fechaf    =  strval(trim($fecha_phpf));
+
+            // $fechaff=strftime( "%Y-%m-%d", time() );
+
+
+            // dd($licencia->fechai);
+
 
         $licencia->nombre = $request->nombre;
-        $licencia->fechai = $fechai;
-        $licencia->fechaf = $fechaf;
+        $licencia->fechai = $request->fechai;
+        $licencia->fechaf = $request->fechaf;
         $licencia->estado = $request->estado;
         $licencia->descripcion = $request->descripcion;
         $licencia->trabajador_id = $request->trabajador;
 
-       
+    //    dd($request);
 
         if($licencia->save()){
             //  dd($licencia);

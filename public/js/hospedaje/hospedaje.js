@@ -10,7 +10,9 @@
         autoclose: true,
     };
     date_input.datepicker(options);
-    
+    // console.log(options);
+
+   
 
     var date_input=$('input[name="fechaf"]'); //our date input has the name "date"
     var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";

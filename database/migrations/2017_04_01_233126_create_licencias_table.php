@@ -16,8 +16,8 @@ class CreateLicenciasTable extends Migration
         Schema::create('licencias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',60);
-            $table->string('fechai',10);
-            $table->string('fechaf',10);
+            $table->date('fechai');
+            $table->date('fechaf');
             $table->string('estado',40);
             $table->string('descripcion',100)->nullable();
             $table->integer('trabajador_id')->unsigned();

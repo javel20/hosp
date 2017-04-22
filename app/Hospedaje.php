@@ -20,4 +20,16 @@ class Hospedaje extends Model
     {
         return $this->belongsTo('hosp\Cliente');
     }
+
+    public function scopeHospedaje($query, $dato){
+
+        return $query->join('clientes','hospedajes.cliente_id','=','clientes.id')
+                    ->join('trabajadors','hospedajes.trabajador_id','=','trabajadors.id')
+                    ->join('habitacions','hospedajes.habitacion_id','=','habitacions.id')
+                    ->where('hospedaje.codigo','LIKE', "%$dato->buscar%")
+                    ->orWhere('hospedaje.estado','LIKE', "%$dato->buscar%")
+                    ->select('hospedajes,*')
+                    ->paginate(7);
+
+    }
 }

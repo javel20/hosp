@@ -9,7 +9,8 @@
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Inicio</label>
-                <input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" value={{$licencia->fechai}}>
+                <!--<input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" value={{$licencia->fechai}}>-->
+                {{Form::date('fechai',$licencia->fechai,['class' => 'form-control', 'placeholder'=>'fechai','maxlength'=>'10'])}}
 
                   
 
@@ -17,7 +18,8 @@
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Termino</label>
-                <input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10"  value={{$licencia->fechaf}}>
+                 {{Form::date('fechaf',$licencia->fechaf,['class' => 'form-control', 'placeholder'=>'fechaf','maxlength'=>'10'])}}
+                <!--<input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10"  value={{$licencia->fechaf}}>-->
 
                   
 
