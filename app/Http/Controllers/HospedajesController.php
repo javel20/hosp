@@ -70,6 +70,7 @@ class HospedajesController extends Controller
         $hospedaje->codigo = $request->codigo;
         $hospedaje->fechai = $request->fechai;
         $hospedaje->fechaf = $request->fechaf;
+        $hospedaje->tipohabitacion = $request->tipohab;
         $hospedaje->preciototal = $request->preciototal;
         $hospedaje->estado = $request->estado;
         $hospedaje->descripcion = $request->descripcion;

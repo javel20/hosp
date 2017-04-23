@@ -69,3 +69,10 @@
         });
 
   })
+var array='';
+
+$("#fechai").on("change", function (event){
+  array = event.target.value;
+  console.log(array);
+
+})

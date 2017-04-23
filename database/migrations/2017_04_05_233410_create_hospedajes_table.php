@@ -18,6 +18,7 @@ class CreateHospedajesTable extends Migration
             $table->string('codigo')->unique();
             $table->string('fechai',10);
             $table->string('fechaf',10);
+            $table->string('tipohabitacion', 30);
             $table->string('preciototal', 7,2);
             $table->string('estado',30);
             $table->string('descripcion',30)->nullable();

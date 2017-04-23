@@ -25,7 +25,7 @@
 
             <div class="form-group col-md-6">
                 <label class="control-label" for="date">Fecha Inicio</label>
-                {{Form::date('fechai',$hospedaje->fechai,['class' => 'form-control', 'placeholder'=>'fechai','maxlength'=>'10'])}}
+                {{Form::date('fechai',$hospedaje->fechai,['class' => 'form-control', 'id'=> 'fechai'])}}
 
             </div>
 
@@ -38,10 +38,10 @@
             <div class="form-group col-md-6">
             <label>Tipo Habitacion</label>
 
-                <select class="form-control" name="tipohab" id="tipohab" value={{$hospedaje->tipohabitacion_id}}>
+                <select class="form-control" name="tipohab" id="tipohab" value={{$hospedaje->tipohabitacion}}>
                         <option value="">--seleccionar--</option>
                 @foreach ($tipohabitacions as $th)
-                        @if($hospedaje->tipohabitacion_id==$th->id)
+                        @if($hospedaje->tipohabitacion==$th->id)
                             <option precio= {{$th->precio}} value={{$th->id}} selected> {{$th->nombre}} </option>
                             @else
                             <option precio= {{$th->precio}} value={{$th->id}}> {{$th->nombre}} </option>
@@ -53,7 +53,7 @@
 
             <div class="form-group col-md-6">
             <label>Precio por día</label>
-                <input type="text" class="form-control" readonly="readonly"  name="precio" id="precio" placeholder="S/." maxlength="8" value={{$hospedaje->habitacion_id}}>
+                <input type="text" class="form-control" readonly="readonly"  name="precio" id="precio" placeholder="S/." maxlength="8" value={{$hospedaje->preciototal}}>
 
             </div>
 
@@ -69,13 +69,13 @@
 
                 <select class="form-control" name="habit" id="habit" value={{$hospedaje->habitacion_id}}>
                         <option value="">--seleccionar--</option>
-                <!--@foreach ($habitacions as $habit)
+                @foreach ($habitacions as $habit)
                         @if($hospedaje->habitacion_id==$habit->id)
                             <option value={{$habit->id}} selected> {{$habit->numero}} </option>
                             @else
                             <option value={{$habit->id}}> {{$habit->numero}} </option>
                         @endif
-                @endforeach-->
+                @endforeach
                 </select>
 
             </div>
