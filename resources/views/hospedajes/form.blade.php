@@ -31,7 +31,7 @@
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Termino</label>
-                {{Form::date('fechaf',$hospedaje->fechaf,['class' => 'form-control', 'placeholder'=>'fechaf','maxlength'=>'10'])}}
+                {{Form::date('fechaf',$hospedaje->fechaf,['class' => 'form-control', 'id'=>'fechaf'])}}
 
             </div>
 
@@ -53,13 +53,13 @@
 
             <div class="form-group col-md-6">
             <label>Precio por día</label>
-                <input type="text" class="form-control" readonly="readonly"  name="precio" id="precio" placeholder="S/." maxlength="8" value={{$hospedaje->preciototal}}>
+                <input type="text" class="form-control" readonly="readonly"  name="precio" id="precio" placeholder="S/." maxlength="8" value={{$hospedaje->precio}}>
 
             </div>
 
             <div class="form-group col-md-6">
             <label>Precio total</label>
-                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control', 'placeholder'=>'S/.','maxlength'=>'8'])}}
+                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control', 'placeholder'=>'S/.','id'=>'preciototal'])}}
 
             </div>
 

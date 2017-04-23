@@ -66,13 +66,31 @@
             console.log(precio);
             $("#precio").val(precio);
           }
+          var preciototal='';
+          preciototal=Number((arrayff[2]-arrayii[2])*(precio));
+          console.log("pt"+preciototal);
+            $("#preciototal").val(preciototal);
         });
 
+
+
   })
-var array='';
+var arrayii='';
 
 $("#fechai").on("change", function (event){
-  array = event.target.value;
-  console.log(array);
+  arrayi = event.target.value;
+  arrayii = arrayi.split("-");
+  console.log(arrayi.split("-"));
+  console.log(Number(arrayii[2]));
+
+  })
+
+var arrayff='';
+  $("#fechaf").on("change", function (event){
+  arrayf = event.target.value;
+  arrayff = arrayf.split("-");
+  console.log(arrayf.split("-"));
+  console.log(Number(arrayff[2]));
+
 
 })
