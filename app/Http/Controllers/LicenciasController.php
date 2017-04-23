@@ -137,31 +137,31 @@ class LicenciasController extends Controller
 
         $licencia = Licencia::find($id);
 
-        $fechai = $_POST['fechai'];
-        $pos = preg_match('/[\/]+/',$fechai);
-        if($pos == true){
-                $array = explode('/', $fechai);
-                $fecha_phpi =  $array[2] ."-". $array[1] ."-". $array[0];
+        // $fechai = $_POST['fechai'];
+        // $pos = preg_match('/[\/]+/',$fechai);
+        // if($pos == true){
+        //         $array = explode('/', $fechai);
+        //         $fecha_phpi =  $array[2] ."-". $array[1] ."-". $array[0];
 
-        } else{
-                $fecha_phpi = $fechai; 
-        }
+        // } else{
+        //         $fecha_phpi = $fechai; 
+        // }
 
-        $fechaf = $_POST['fechaf'];
-        $pos = preg_match('/[\/]+/',$fechaf);
-        if($pos == true){
-                $array = explode('/', $fechaf);
-                $fecha_phpf =  $array[2] ."-". $array[1] ."-". $array[0];
+        // $fechaf = $_POST['fechaf'];
+        // $pos = preg_match('/[\/]+/',$fechaf);
+        // if($pos == true){
+        //         $array = explode('/', $fechaf);
+        //         $fecha_phpf =  $array[2] ."-". $array[1] ."-". $array[0];
 
-        } else{
-                $fecha_phpf = $fechaf; 
-        }
+        // } else{
+        //         $fecha_phpf = $fechaf; 
+        // }
 
         // dd(strval(trim($fecha_phpf)));    
         
         $licencia->nombre = $request->nombre;
-        $licencia->fechai = strval(trim($fecha_phpi));
-        $licencia->fechaf = strval(trim($fecha_phpf));
+        $licencia->fechai = $request->fechai;
+        $licencia->fechaf = $request->fechaf;
         $licencia->estado = $request->estado;
         $licencia->descripcion = $request->descripcion;
         $licencia->trabajador_id = $request->trabajador;

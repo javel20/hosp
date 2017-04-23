@@ -2,7 +2,7 @@
 
             <div class="form-group col-md-6">
                 <label>Codigo:</label>
-                {{Form::text('codigo',$hospedaje->codigo,['class' => 'form-control', 'placeholder'=>'Codigo','maxlength'=>'60'])}}
+                {{Form::text('codigo',$hospedaje->codigo,['class' => 'form-control', 'placeholder'=>'Codigo','maxlength'=>'8'])}}
                 
             </div>
 
@@ -25,13 +25,13 @@
 
             <div class="form-group col-md-6">
                 <label class="control-label" for="date">Fecha Inicio</label>
-                <input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" value={{$hospedaje->fechai}}>
+                {{Form::date('fechai',$hospedaje->fechai,['class' => 'form-control', 'placeholder'=>'fechai','maxlength'=>'10'])}}
 
             </div>
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Termino</label>
-                <input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10"  value={{$hospedaje->fechaf}}>
+                {{Form::date('fechaf',$hospedaje->fechaf,['class' => 'form-control', 'placeholder'=>'fechaf','maxlength'=>'10'])}}
 
             </div>
 
@@ -42,9 +42,9 @@
                         <option value="">--seleccionar--</option>
                 @foreach ($tipohabitacions as $th)
                         @if($hospedaje->tipohabitacion_id==$th->id)
-                            <option precio={{$th->precio}} value={{$th->id}} selected> {{$th->nombre}} </option>
+                            <option precio= {{$th->precio}} value={{$th->id}} selected> {{$th->nombre}} </option>
                             @else
-                            <option precio={{$th->precio}} value={{$th->id}}> {{$th->nombre}} </option>
+                            <option precio= {{$th->precio}} value={{$th->id}}> {{$th->nombre}} </option>
                         @endif
                 @endforeach
                 </select>
@@ -59,7 +59,7 @@
 
             <div class="form-group col-md-6">
             <label>Precio total</label>
-                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control','readonly'=>'readonly' , 'placeholder'=>'S/.','maxlength'=>'8'])}}
+                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control', 'placeholder'=>'S/.','maxlength'=>'8'])}}
 
             </div>
 
@@ -103,6 +103,7 @@
 
             <div class="form-group text-right">
                 <a href="{{url('/hospedajes')}}">Regresar al listado de hospedaje</a>
+                <input type="hidden" name="trabajador" value= <?php echo Auth::user()->id; ?> >
                 <input type="submit" value="Enviar" class="btn btn-success">
             </div>
         

@@ -1,29 +1,29 @@
 
-  $(document).ready(function(){
+  // $(document).ready(function(){
     
-    var date_input=$('input[name="fechai"]'); //our date input has the name "date"
-    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-    var options={
-      format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-    };
-    date_input.datepicker(options);
-    // console.log(options);
+  //   var date_input=$('input[name="fechai"]'); //our date input has the name "date"
+  //   var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+  //   var options={
+  //     format: 'mm/dd/yyyy',
+  //       container: container,
+  //       todayHighlight: true,
+  //       autoclose: true,
+  //   };
+  //   date_input.datepicker(options);
+  //   // console.log(options);
 
    
 
-    var date_input=$('input[name="fechaf"]'); //our date input has the name "date"
-    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-    var options={
-        format: 'mm/dd/yyyy',
-        container: container,
-        todayHighlight: true,
-        autoclose: true,
-    };
-    date_input.datepicker(options);
-  })
+  //   var date_input=$('input[name="fechaf"]'); //our date input has the name "date"
+  //   var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+  //   var options={
+  //       format: 'mm/dd/yyyy',
+  //       container: container,
+  //       todayHighlight: true,
+  //       autoclose: true,
+  //   };
+  //   date_input.datepicker(options);
+  // })
 
            
 

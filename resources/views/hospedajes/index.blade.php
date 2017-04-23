@@ -9,49 +9,48 @@
 
     @include('hospedajes.buscar')
 
-    <div class="table-responsive">
+        <div class="table-responsive">
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <td>codigo</td>
-                    <td>Cliente</td>
-                    <td>Trabajador</td>
-                    <td>Fecha Inicio</td>
-                    <td>Fecha Final</td>
-                    <td>Tipo habitacion</td>
-                    <td>habitacion</td>
-                    <td>Costo</td>
-                    <td>Registrador</td>
-                    <td>Estado</td>
-                    <td>Descripcion</td>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>codigo</td>
+                        <td>Cliente</td>
+                        <td>Trabajador</td>
+                        <td>Fecha Inicio</td>
+                        <td>Fecha Final</td>
+                        <td>habitacion</td>
+                        <td>Precio Total</td>
+                        <td>Registrador</td>
+                        <td>Estado</td>
+                        <td>Descripcion</td>
 
-                    <td>Acciones</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($hospedajes as $hospedaje)
-                <tr>
-                    <td>{{$hospedaje->codigo}}</td>
-                    <td>{{$hospedaje->cliente->nombre}}</td>
-                    <td>{{$hospedaje->fechai}}</td>
-                    <td>{{$hospedaje->fechaf}}</td>
-                    <td>{{$hospedaje->tipohabitacion->nombre}}</td>
-                    <td>{{$hospedaje->habitacion->numero}}</td>
-                    <td>{{$hospedaje->costo}}</td>
-                    <td>{{$hospedaje->trabajador->nombre}}</td>
-                    <td>{{$hospedaje->estado}}</td>
-                    <td>{{$hospedaje->descripcion}}</td>
-                    <td>
-                        <a href="{{url('/hospedajes/'.$hospedaje->id.'/edit')}}">Editar</a>
-                        @include('hospedajes.delete',['hospedaje' => $hospedaje])
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($hospedajes as $hospedaje)
+                    <tr>
+                        <td>{{$hospedaje->codigo}}</td>
+                        <td>{{$hospedaje->cliente->nombre}}</td>
+                        <td>{{$hospedaje->trabajador->nombre}}</td>
+                        <td>{{$hospedaje->fechai}}</td>
+                        <td>{{$hospedaje->fechaf}}</td>
+                        <td>{{$hospedaje->habitacion->numero}}</td>
+                        <td>{{$hospedaje->preciototal}}</td>
+                        <td>{{$hospedaje->trabajador->nombre}} {{$hospedaje->trabajador->apellidopaterno}} {{$hospedaje->trabajador->apellidomaterno}}</td>
+                        <td>{{$hospedaje->estado}}</td>
+                        <td>{{$hospedaje->descripcion}}</td>
+                        <td>
+                            <a href="{{url('/hospedajes/'.$hospedaje->id.'/edit')}}">Editar</a>
 
-    </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+        </div>
 </div>
 </div>
 
