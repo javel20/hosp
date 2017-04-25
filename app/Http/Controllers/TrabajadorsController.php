@@ -65,12 +65,13 @@ class TrabajadorsController extends Controller
             'celular' => 'required',  
             'operador' => 'required',  
             'estado' => 'required',  
-            'descripcion' => 'max:100'
+            'tipotrabajador' => 'required',  
+            'local_id' => 'required',
 
         ]);
 
 
-        $trabajador=new Trabajador;
+        $trabajador = new Trabajador;
 
         $trabajador->nombre = $request->nombre;
         $trabajador->apellidopaterno = $request->apellidopaterno;
@@ -136,6 +137,22 @@ class TrabajadorsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,[
+
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
+            'direccion' => 'required|min:3|max:60',    
+            'celular' => 'required',  
+            'operador' => 'required',  
+            'estado' => 'required',  
+            'tipotrabajador' => 'required',  
+            'local' => 'required'
+
+        ]);
+
+
         $trabajador= Trabajador::find($id);
 
         $trabajador->nombre = $request->nombre;

@@ -4,6 +4,10 @@
             <label>Nombre:</label>
                 {{Form::text('nombre',$licencia->nombre,['class' => 'form-control', 'placeholder'=>'nombre','maxlength'=>'60'])}}
                 
+                 @if($errors->has('nombre'))
+                    <span style='color:red;'>{{$errors->first('nombre')}}</span>
+                @endif
+
             </div>
 
 
@@ -12,7 +16,9 @@
                 <!--<input validate="date" class="form-control" id="date" name="fechai" placeholder="MM/DD/YYYY" maxlength="10" value={{$licencia->fechai}}>-->
                 {{Form::date('fechai',$licencia->fechai,['class' => 'form-control', 'placeholder'=>'fechai','maxlength'=>'10'])}}
 
-                  
+                   @if($errors->has('fechai'))
+                    <span style='color:red;'>{{$errors->first('fechai')}}</span>
+                @endif
 
             </div>
 
@@ -21,7 +27,9 @@
                  {{Form::date('fechaf',$licencia->fechaf,['class' => 'form-control', 'placeholder'=>'fechaf','maxlength'=>'10'])}}
                 <!--<input validate="date" class="form-control" id="date" name="fechaf" placeholder="MM/DD/YYYY" maxlength="10"  value={{$licencia->fechaf}}>-->
 
-                  
+                   @if($errors->has('fechaf'))
+                    <span style='color:red;'>{{$errors->first('fechaf')}}</span>
+                @endif
 
             </div>
 
@@ -32,6 +40,10 @@
                     <option value="De permiso" <?php echo ($licencia->estado=="De permiso" ? 'selected="selected"' : '');?>>De permiso</option>
                     <option value="De retorno" <?php echo ($licencia->estado=="De retorno" ? 'selected="selected"' : '');?>>De retorno</option>
                 </select>
+
+                 @if($errors->has('estado'))
+                    <span style='color:red;'>{{$errors->first('estado')}}</span>
+                @endif
                 
             </div>
 
@@ -40,6 +52,10 @@
             <label>Descripcion</label>
                 {{Form::text('descripcion',$licencia->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'100'])}}
                 
+                 @if($errors->has('descripcion'))
+                    <span style='color:red;'>{{$errors->first('descripcion')}}</span>
+                @endif
+
             </div>
 
             <div class="form-group col-md-6">
@@ -55,6 +71,10 @@
                         @endif
                 @endforeach
                 </select>
+
+                 @if($errors->has('trabajador_id'))
+                    <span style='color:red;'>{{$errors->first('trabajador_id')}}</span>
+                @endif
 
             </div>
 

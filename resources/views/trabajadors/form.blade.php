@@ -6,6 +6,10 @@
             <label>Nombre:</label>
                 {{Form::text('nombre',$trabajador->nombre,['class' => 'form-control', 'placeholder'=>'nombres','maxlength'=>'60'])}}
                 
+                @if($errors->has('nombre'))
+                    <span style='color:red;'>{{$errors->first('nombre')}}</span>
+                @endif
+                
             </div>
 
 
@@ -13,11 +17,20 @@
             <label>Apellido Paterno</label>
                 {{Form::text('apellidopaterno',$trabajador->apellidopaterno,['class' => 'form-control', 'placeholder'=>'apellidopaterno','maxlength'=>'15'])}}
                 
+                @if($errors->has('apellidopaterno'))
+                    <span style='color:red;'>{{$errors->first('nombre')}}</span>
+                @endif
+
             </div>
 
             <div class="form-group col-md-6">
             <label>Apellido Materno</label>
                 {{Form::text('apellidomaterno',$trabajador->apellidomaterno,['class' => 'form-control', 'placeholder'=>'Apellido Materno','maxlength'=>'15'])}}
+                
+                @if($errors->has('apellidomaterno'))
+                    <span style='color:red;'>{{$errors->first('apellidomaterno')}}</span>
+                @endif
+
                 
             </div>
 
@@ -25,12 +38,20 @@
             <label>Direccion</label>
                 {{Form::text('direccion',$trabajador->direccion,['class' => 'form-control', 'placeholder'=>'Direccion','maxlength'=>'15'])}}
                 
+                @if($errors->has('direccion'))
+                    <span style='color:red;'>{{$errors->first('direccion')}}</span>
+                @endif
+
             </div>
 
             <div class="form-group col-md-3">
             <label>Celular</label>
                 {{Form::text('celular',$trabajador->celular,['class' => 'form-control', 'placeholder'=>'Celular','maxlength'=>'9'])}}
                 
+                @if($errors->has('celular'))
+                    <span style='color:red;'>{{$errors->first('celular')}}</span>
+                @endif
+
             </div>
 
             <div class="form-group col-md-3">
@@ -45,6 +66,10 @@
                     <option value="Bitel" <?php echo ($trabajador->operador=="Bitel" ? 'selected="selected"' : '');?>>Bitel</option>
                     <option value="Virgin" <?php echo ($trabajador->operador=="Virgin" ? 'selected="selected"' : '');?>>Virgin</option>
                 </select>
+
+                @if($errors->has('operador'))
+                    <span style='color:red;'>{{$errors->first('operador')}}</span>
+                @endif
                 
             </div>
 
@@ -57,6 +82,10 @@
                     <option value="Contrado Finalziado" <?php echo ($trabajador->estado=="Contrado Finalziado" ? 'selected="selected"' : '');?>>Contrado Finalziado</option>
                     <option value="Expulsado" <?php echo ($trabajador->estado=="Expulsado" ? 'selected="selected"' : '');?>>Expulsado</option>
                 </select>
+
+                @if($errors->has('estado'))
+                    <span style='color:red;'>{{$errors->first('estado')}}</span>
+                @endif
                 
             </div>
 
@@ -75,6 +104,10 @@
                 @endforeach
                 </select>
 
+                @if($errors->has('tipotrabajador'))
+                    <span style='color:red;'>{{$errors->first('tipotrabajador')}}</span>
+                @endif
+
             </div>
 
             <div class="form-group col-md-6">
@@ -90,6 +123,10 @@
                         @endif
                 @endforeach
                 </select>
+
+                @if($errors->has('local_id'))
+                    <span style='color:red;'>{{$errors->first('local_id')}}</span>
+                @endif
 
             </div>
 

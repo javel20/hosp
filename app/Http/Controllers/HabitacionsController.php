@@ -61,7 +61,14 @@ class HabitacionsController extends Controller
      */
     public function store(Request $request)
     {
-  
+
+        $this->validate($request,[
+            'numero' => 'required|integer|min:1|max:3',
+            'vigencia' => 'required',
+            'estado' => 'required',
+            'tipohabitacion' => 'required',
+
+        ]);  
 
         $habitacion=new Habitacion;
 
@@ -119,6 +126,15 @@ class HabitacionsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,[
+            'numero' => 'required|integer|min:1|max:3',
+            'vigencia' => 'required',
+            'estado' => 'required',
+            'tipohabitacion' => 'required',
+            'descripcion' => 'max:100'
+
+        ]);
        
 
         $habitacion= Habitacion::find($id);

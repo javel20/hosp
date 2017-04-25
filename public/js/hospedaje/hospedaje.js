@@ -66,31 +66,41 @@
             console.log(precio);
             $("#precio").val(precio);
           }
-          var preciototal='';
-          preciototal=Number((arrayff[2]-arrayii[2])*(precio));
-          console.log("pt"+preciototal);
-            $("#preciototal").val(preciototal);
+
         });
 
 
 
   })
 var arrayii='';
-
 $("#fechai").on("change", function (event){
   arrayi = event.target.value;
   arrayii = arrayi.split("-");
   console.log(arrayi.split("-"));
   console.log(Number(arrayii[2]));
+  fechaf.value = "dd/mm/aaaa";
 
   })
 
 var arrayff='';
   $("#fechaf").on("change", function (event){
-  arrayf = event.target.value;
-  arrayff = arrayf.split("-");
-  console.log(arrayf.split("-"));
-  console.log(Number(arrayff[2]));
+    var preciototal='';
+console.log(preciototal.value);
+    if(isNaN(preciototal)||preciototal.value=="NaN"){
+        alert("fije la fecha de inicio");
+        // fechaf.value = "dd/mm/aaaa";
+        // stop();
+          
+      }
+      else{
+          arrayf = event.target.value;
+          arrayff = arrayf.split("-");
+          console.log(arrayf.split("-"));
+          console.log(Number(arrayff[2]));
 
-
+            preciototal=Number((Number(arrayff[2])-Number(arrayii[2]))*(precio.value));
+            console.log("precio"+precio.value);
+            console.log("pt"+preciototal);
+            $("#preciototal").val(preciototal);
+      }
 })

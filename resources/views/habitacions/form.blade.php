@@ -4,7 +4,9 @@
             <div class="form-group col-md-6 col-sm-10">
             <label>Numero de Habitacion:</label>
                 {{Form::text('numero',$habitacion->numero,['class' => 'form-control', 'placeholder'=>'numeros','maxlength'=>'60'])}}
-                
+                @if($errors->has('numero'))
+                    <span style='color:red;'>{{$errors->first('numero')}}</span>
+                @endif
             </div>
 
 
@@ -15,6 +17,9 @@
                     <option value="Activo" <?php echo ($habitacion->vigencia=="Activo" ? 'selected="selected"' : '');?>>Activo</option>
                     <option value="Inactivo" <?php echo ($habitacion->vigencia=="Inactivo" ? 'selected="selected"' : '');?>>Inactivo</option>
                 </select>
+                @if($errors->has('vigencia'))
+                    <span style='color:red;'>{{$errors->first('vigencia')}}</span>
+                @endif
                 
             </div>
 
@@ -27,14 +32,12 @@
                     <option value="Mantenimiento" <?php echo ($habitacion->estado=="Mantenimiento" ? 'selected="selected"' : '');?>>Mantenimiento</option>
                     <option value="Reservado" <?php echo ($habitacion->estado=="Reservado" ? 'selected="selected"' : '');?>>Reservado</option>
                 </select>
+                @if($errors->has('estado'))
+                    <span style='color:red;'>{{$errors->first('estado')}}</span>
+                @endif
             </div>
 
 
-            <div class="form-group col-md-6 col-sm-10">
-            <label>Descripcion</label>
-                {{Form::text('descripcion',$habitacion->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'100'])}}
-                
-            </div>
 
             <div class="form-group col-md-6 col-sm-10">
             <label>Tipo Habitacion</label>
@@ -50,8 +53,18 @@
                 @endforeach
                 </select>
 
+                @if($errors->has('tipohabitacion'))
+                    <span style='color:red;'>{{$errors->first('tipohabitacion')}}</span>
+                @endif
+
             </div>
 
+            <div class="form-group col-md-6 col-sm-10">
+            <label>Descripcion</label>
+                {{Form::text('descripcion',$habitacion->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'100'])}}
+                
+            </div>
+            
         </div>
         <br>
         <div class="form-group col-md-9 col-sm-10">

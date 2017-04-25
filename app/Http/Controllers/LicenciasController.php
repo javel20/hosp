@@ -48,6 +48,16 @@ class LicenciasController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $this->validate($request,[
+            
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'fechai' => 'required',
+            'fechaf' => 'required',
+            'estado' => 'required',
+            'descripcion' => 'max:100',
+            'trabajador_id' => 'required'
+        ]);     
 
         $licencia = new Licencia;
                 
@@ -134,6 +144,17 @@ class LicenciasController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,[
+            
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'fechai' => 'required',
+            'fechaf' => 'required',
+            'estado' => 'required',
+            'descripcion' => 'max:100',
+            'trabajador' => 'requerid',
+        ]);     
+
 
         $licencia = Licencia::find($id);
 

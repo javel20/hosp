@@ -34,6 +34,7 @@ class HospedajesController extends Controller
      */
     public function create()
     {
+
         $hospedaje = new Hospedaje;
         $trabajadors = Trabajador::all();
         $clientes = Cliente::all();
@@ -65,6 +66,20 @@ class HospedajesController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+            'codigo' => 'required|integer|min:1|max:8',
+            'cliente' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'fechai' => 'required',
+            'fechaf' => 'required',
+            'tipohabitacion' => 'required',
+            'preciototal' => 'required|numeric',
+            'estado' => 'required',
+            'habitacion' => 'required',
+
+        ]);
+
+
         $hospedaje = new Hospedaje;
 
         $hospedaje->codigo = $request->codigo;
@@ -130,6 +145,21 @@ class HospedajesController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,[
+            // 'codigo' => 'required|integer',
+            'cliente' => 'required',
+            'fechai' => 'required',
+            'fechaf' => 'required',
+            'tipohabitacion' => 'required',
+            'preciototal' => 'required|numeric',
+            'estado' => 'required',
+            'habitacion' => 'required',
+            'descripcion' => 'max:100'
+
+        ]);
+
+
         $hospedaje = Hospedaje::find($id);
 
         $hospedaje->codigo = $request->codigo;

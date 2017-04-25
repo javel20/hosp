@@ -13,7 +13,7 @@
 
             <div class="form-group col-md-6">
             <label>Direccion:</label>
-                {{Form::text('direccion',$local->direccion,['class' => 'form-control', 'placeholder'=>'Direccion','maxlength'=>'50'])}}
+                {{Form::text('direccion',$local->direccion,['class' => 'form-control', 'placeholder'=>'Direccion','maxlength'=>'60'])}}
                 @if($errors->has('direccion'))
                     <span style='color:red;'>{{$errors->first('direccion')}}</span>
                 @endif
@@ -21,7 +21,7 @@
 
             <div class="form-group col-md-6">
             <label>Telefono:</label>
-                {{Form::text('telefono',$local->telefono,['class' => 'form-control', 'placeholder'=>'Telefono','maxlength'=>'50'])}}
+                {{Form::text('telefono',$local->telefono,['class' => 'form-control', 'placeholder'=>'Telefono','maxlength'=>'9'])}}
                 @if($errors->has('telefono'))
                     <span style='color:red;'>{{$errors->first('telefono')}}</span>
                 @endif

@@ -45,6 +45,16 @@ class LocalsController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request,[
+            
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'direccion' => 'required|min:3|max:60',
+            'telefono' => 'required|integer|digits:9',
+
+        ]); 
+
+
         $local = new local;
 
         $local->nombre = $request->nombre;
@@ -94,6 +104,15 @@ class LocalsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,[
+            
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'direccion' => 'required|min:3|max:60',
+            'telefono' => 'required|integer|digits:9',
+
+        ]); 
+        
         $local= Local::find($id);
 
         $local->nombre = $request->nombre;
