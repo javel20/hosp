@@ -65,8 +65,8 @@ class TrabajadorsController extends Controller
             'celular' => 'required',  
             'operador' => 'required',  
             'estado' => 'required',  
-            'tipotrabajador' => 'required',  
-            'local_id' => 'required',
+            // 'tipotrabajador' => 'required',  
+            // 'local_id' => 'required',
 
         ]);
 

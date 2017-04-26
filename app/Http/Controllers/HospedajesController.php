@@ -68,14 +68,14 @@ class HospedajesController extends Controller
     {
 
         $this->validate($request,[
-            'codigo' => 'required|integer|min:1|max:8',
-            'cliente' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',
+            'codigo' => 'required|integer',
+            'cliente' => 'required',
             'fechai' => 'required',
             'fechaf' => 'required',
-            'tipohabitacion' => 'required',
+            // 'tipohabitacion' => 'required',
             'preciototal' => 'required|numeric',
             'estado' => 'required',
-            'habitacion' => 'required',
+            // 'habitacion' => 'required',
 
         ]);
 

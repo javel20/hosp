@@ -42,19 +42,19 @@
             <div class="form-group col-md-6 col-sm-10">
             <label>Tipo Habitacion</label>
 
-                <select class="form-control" name="tipoh" id="tipoh" value={{$habitacion->tipohabitacion_id}}>
+                <select class="form-control" name="tipoh" id="tipoh">
                         <option value="">--seleccionar--</option>
                 @foreach ($tipos as $tipo)
                         @if($habitacion->tipohabitacion_id==$tipo->id)
-                            <option value={{$tipo->id}} selected> {{$tipo->nombre}} </option>
+                            <option value="{{$tipo->id}}" selected> {{$tipo->nombre}} </option>
                             @else
-                            <option value={{$tipo->id}}> {{$tipo->nombre}} </option>
+                            <option value="{{$tipo->id}}"> {{$tipo->nombre}} </option>
                         @endif
                 @endforeach
                 </select>
 
                 @if($errors->has('tipohabitacion'))
-                    <span style='color:red;'>{{$errors->first('tipohabitacion')}}</span>
+                    <span style='color:red;'>{{$errors->first('tipohabitacion_id')}}</span>
                 @endif
 
             </div>

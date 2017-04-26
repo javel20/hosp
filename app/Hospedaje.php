@@ -29,7 +29,7 @@ class Hospedaje extends Model
                     ->join('tipohabitacions','habitacions.tipohabitacion_id','=','tipohabitacions.id')
                     ->where('hospedaje.codigo','LIKE', "%$dato->buscar%")
                     ->orWhere('hospedaje.estado','LIKE', "%$dato->buscar%")
-                    ->select('hospedajes,*')
+                    ->select('hospedajes,*,trabajador.nombre as nombretra')
                     ->paginate(7);
 
     }

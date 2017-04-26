@@ -16,7 +16,7 @@
                     <tr>
                         <td>codigo</td>
                         <td>Cliente</td>
-                        <td>Trabajador</td>
+                        
                         <td>Fecha Inicio</td>
                         <td>Fecha Final</td>
                         <td>habitacion</td>
@@ -32,8 +32,8 @@
                     @foreach($hospedajes as $hospedaje)
                     <tr>
                         <td>{{$hospedaje->codigo}}</td>
-                        <td>{{$hospedaje->cliente->nombre}}</td>
-                        <td>{{$hospedaje->trabajador->nombre}}</td>
+                        <td>{{$hospedaje->cliente->nombre}} {{$hospedaje->cliente->apellidopaterno}} {{$hospedaje->cliente->apellidomaterno}}</td>
+                        
                         <td>{{$hospedaje->fechai}}</td>
                         <td>{{$hospedaje->fechaf}}</td>
                         <td>{{$hospedaje->habitacion->numero}}</td>

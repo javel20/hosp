@@ -17,9 +17,9 @@
                         <option value="">--seleccionar--</option>
                     @foreach ($clientes as $cliente)
                             @if($hospedaje->cliente_id==$cliente->id)
-                                <option value={{$cliente->id}} selected> {{$cliente->nombre}} </option>
+                                <option value={{$cliente->id}} selected> {{$cliente->nombre}} {{$cliente->apellidopaterno}} {{$cliente->apellidomaterno}}</option>
                                 @else
-                                <option value={{$cliente->id}}> {{$cliente->nombre}} </option>
+                                <option value={{$cliente->id}}> {{$cliente->nombre}} {{$cliente->apellidopaterno}} {{$cliente->apellidomaterno}}</option>
                             @endif
                     @endforeach
                 </select>
@@ -33,13 +33,13 @@
             <div class="form-group col-md-6">
             <label>Tipo Habitacion</label>
 
-                <select class="form-control" name="tipohab" id="tipohab" value={{$hospedaje->tipohabitacion}}>
+                <select class="form-control" name="tipohab" id="tipohab" value='{{$hospedaje->tipohabitacion}}'>
                         <option value="">--seleccionar--</option>
                 @foreach ($tipohabitacions as $th)
                         @if($hospedaje->tipohabitacion==$th->id)
-                            <option precio= {{$th->precio}} value={{$th->id}} selected> {{$th->nombre}} </option>
+                            <option value='{{$th->id}}' precio='{{$th->precio}}' selected> {{$th->nombre}} </option>
                             @else
-                            <option precio= {{$th->precio}} value={{$th->id}}> {{$th->nombre}} </option>
+                            <option value='{{$th->id}}' precio='{{$th->precio}}'> {{$th->nombre}} </option>
                         @endif
                 @endforeach
                 </select>
@@ -56,7 +56,7 @@
                 
             </div>
 
-            
+
             <div class="form-group col-md-6">
                 <label class="control-label" for="date">Fecha Inicio</label>
                 {{Form::date('fechai',$hospedaje->fechai,['class' => 'form-control', 'id'=> 'fechai'])}}
@@ -77,10 +77,10 @@
 
             </div>
 
-
+            
             <div class="form-group col-md-6">
             <label>Precio total</label>
-                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control', 'placeholder'=>'S/.','id'=>'preciototal'])}}
+                {{Form::text('preciototal',$hospedaje->preciototal,['class' => 'form-control','placeholder'=>'S/.','id'=>'preciototal', 'readonly'=>'readonly'])}}
 
                 @if($errors->has('preciototal'))
                     <span style='color:red;'>{{$errors->first('preciototal')}}</span>
@@ -94,13 +94,13 @@
 
                 <select class="form-control" name="habit" id="habit" value={{$hospedaje->habitacion_id}}>
                         <option value="">--seleccionar--</option>
-                @foreach ($habitacions as $habit)
+                <!--@foreach ($habitacions as $habit)
                         @if($hospedaje->habitacion_id==$habit->id)
                             <option value={{$habit->id}} selected> {{$habit->numero}} </option>
                             @else
                             <option value={{$habit->id}}> {{$habit->numero}} </option>
                         @endif
-                @endforeach
+                @endforeach-->
                 </select>
 
                 @if($errors->has('habitacion'))

@@ -25,12 +25,14 @@
   //   date_input.datepicker(options);
   // })
 
-           
+var getUrl = window.location;
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+        
 
   $("#tipohab").on("change", function (event){
     console.log("asdasda");
     $.ajax({
-    url:"http://localhost/hospedaje/public/habitacionAjax?id=" + event.target.value,
+    url:baseUrl+"/public/habitacionAjax?id=" + event.target.value,
     dataType: 'text',
     // data : {id:event.target.value},
     cache:false,
@@ -72,23 +74,27 @@
 
 
   })
+
+var arrayi='';
 var arrayii='';
 $("#fechai").on("change", function (event){
+  fechaf.value = "dd/mm/aaaa";
   arrayi = event.target.value;
   arrayii = arrayi.split("-");
   console.log(arrayi.split("-"));
   console.log(Number(arrayii[2]));
-  fechaf.value = "dd/mm/aaaa";
 
   })
 
 var arrayff='';
   $("#fechaf").on("change", function (event){
     var preciototal='';
-console.log(preciototal.value);
-    if(isNaN(preciototal)||preciototal.value=="NaN"){
+    console.log(fechai);
+    console.log("ptantesdelif"+preciototal);
+    // if(preciototal==''){
+    if(arrayi==''){
         alert("fije la fecha de inicio");
-        // fechaf.value = "dd/mm/aaaa";
+        fechaf.value = "dd/mm/aaaa";
         // stop();
           
       }
@@ -98,7 +104,7 @@ console.log(preciototal.value);
           console.log(arrayf.split("-"));
           console.log(Number(arrayff[2]));
 
-            preciototal=Number((Number(arrayff[2])-Number(arrayii[2]))*(precio.value));
+            preciototal=Number((Number(arrayff[2])-Number(arrayii[2]))*Number(precio.value));
             console.log("precio"+precio.value);
             console.log("pt"+preciototal);
             $("#preciototal").val(preciototal);

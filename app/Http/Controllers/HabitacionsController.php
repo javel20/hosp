@@ -63,10 +63,11 @@ class HabitacionsController extends Controller
     {
 
         $this->validate($request,[
-            'numero' => 'required|integer|min:1|max:3',
+            'numero' => 'required|integer',
             'vigencia' => 'required',
             'estado' => 'required',
-            'tipohabitacion' => 'required',
+            // 'tipohabitacion' => 'required',
+            'descripcion' => 'max:100'
 
         ]);  
 
@@ -128,7 +129,7 @@ class HabitacionsController extends Controller
     {
 
         $this->validate($request,[
-            'numero' => 'required|integer|min:1|max:3',
+            'numero' => 'required|integer',
             'vigencia' => 'required',
             'estado' => 'required',
             'tipohabitacion' => 'required',
