@@ -4,6 +4,10 @@ namespace hosp\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use hosp\Http\Requests;
+
+use hosp\DetalleUsers;
+
 class DetalleAccesoUsersController extends Controller
 {
     /**
