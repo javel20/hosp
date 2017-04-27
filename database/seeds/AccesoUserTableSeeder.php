@@ -1,6 +1,6 @@
 <?php
 
-use hosp\DetalleAccesoUsers;
+use hosp\DetalleAccesoUser;
 
 use Illuminate\Database\Seeder;
 

@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
 
         Model::unguard();
         
-        // $this->call(TipohabitacionTableSeeder::class);
-        // $this->call(TipotrabajadorTableSeeder::class);
-        // $this->call(LocalTableSeeder::class);
-        // $this->call(HabitacionTableSeeder::class);   
-        // $this->call(TrabajadorTableSeeder::class);
-        // $this->call(AccesoTableSeeder::class);
-        // $this->call(UserTableSeeder::class);
-        $this->call(AccesoUserTableSeeder::class);
+        $this->call(TipohabitacionTableSeeder::class);
+        $this->call(TipotrabajadorTableSeeder::class);
+        $this->call(LocalTableSeeder::class);
+        $this->call(HabitacionTableSeeder::class);   
+        $this->call(TrabajadorTableSeeder::class);
+        $this->call(AccesoTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        // $this->call(AccesoUserTableSeeder::class);
 
         Model::reguard();
 
