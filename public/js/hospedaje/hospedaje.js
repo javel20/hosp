@@ -26,7 +26,7 @@
   // })
 
 var getUrl = window.location;
-var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
         
 
   $("#tipohab").on("change", function (event){
@@ -83,6 +83,7 @@ $("#fechai").on("change", function (event){
   arrayii = arrayi.split("-");
   console.log(arrayi.split("-"));
   console.log(Number(arrayii[2]));
+  console.log(baseUrl+"/public/habitacionAjax?id=");
 
   })
 

@@ -62,7 +62,7 @@ class TrabajadorsController extends Controller
             'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
             'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
             'direccion' => 'required|min:3|max:60',    
-            'celular' => 'required',  
+            'celular' => 'required|digits:9',  
             'operador' => 'required',  
             'estado' => 'required',  
             // 'tipotrabajador' => 'required',  
@@ -144,11 +144,11 @@ class TrabajadorsController extends Controller
             'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
             'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
             'direccion' => 'required|min:3|max:60',    
-            'celular' => 'required',  
+            'celular' => 'required|digits:9',  
             'operador' => 'required',  
             'estado' => 'required',  
-            'tipotrabajador' => 'required',  
-            'local' => 'required'
+            // 'tipotrabajador' => 'required',  
+            // 'local' => 'required'
 
         ]);
 
