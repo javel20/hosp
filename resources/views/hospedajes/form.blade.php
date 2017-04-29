@@ -33,13 +33,13 @@
             <div class="form-group col-md-6">
             <label>Tipo Habitacion</label>
 
-                <select class="form-control" name="tipohab" id="tipohab" value='{{$hospedaje->tipohabitacion}}'>
+                <select class="form-control" name="tipohabitacion" id="tipohabitacion" value="{{$hospedaje->tipohabitacion}}">
                         <option value="">--seleccionar--</option>
                 @foreach ($tipohabitacions as $th)
                         @if($hospedaje->tipohabitacion==$th->id)
-                            <option value='{{$th->id}}' precio='{{$th->precio}}' selected> {{$th->nombre}} </option>
+                            <option value="{{$th->id}}" precio="{{$th->precio}}" selected> {{$th->nombre}} </option>
                             @else
-                            <option value='{{$th->id}}' precio='{{$th->precio}}'> {{$th->nombre}} </option>
+                            <option value="{{$th->id}}" precio="{{$th->precio}}"> {{$th->nombre}} </option>
                         @endif
                 @endforeach
                 </select>
@@ -92,7 +92,7 @@
             <div class="form-group col-md-6">
             <label>Habitacion</label>
 
-                <select class="form-control" name="habit" id="habit" value={{$hospedaje->habitacion_id}}>
+                <select class="form-control" name="habitacion" id="habitacion" value={{$hospedaje->habitacion_id}}>
                         <option value="">--seleccionar--</option>
                 <!--@foreach ($habitacions as $habit)
                         @if($hospedaje->habitacion_id==$habit->id)

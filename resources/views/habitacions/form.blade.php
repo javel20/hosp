@@ -3,7 +3,7 @@
 
             <div class="form-group col-md-6 col-sm-10">
             <label>Numero de Habitacion:</label>
-                {{Form::text('numero',$habitacion->numero,['class' => 'form-control', 'placeholder'=>'numeros','maxlength'=>'60'])}}
+                {{Form::text('numero',$habitacion->numero,['class' => 'form-control', 'placeholder'=>'numeros','maxlength'=>'3'])}}
                 @if($errors->has('numero'))
                     <span style='color:red;'>{{$errors->first('numero')}}</span>
                 @endif
@@ -42,7 +42,7 @@
             <div class="form-group col-md-6 col-sm-10">
             <label>Tipo Habitacion</label>
 
-                <select class="form-control" name="tipoh" id="tipoh">
+                <select class="form-control" name="tipohabitacion" id="tipohabitacion" value="{{$habitacion->tipohabitacion_id}}">
                         <option value="">--seleccionar--</option>
                 @foreach ($tipos as $tipo)
                         @if($habitacion->tipohabitacion_id==$tipo->id)
@@ -54,7 +54,7 @@
                 </select>
 
                 @if($errors->has('tipohabitacion'))
-                    <span style='color:red;'>{{$errors->first('tipohabitacion_id')}}</span>
+                    <span style='color:red;'>{{$errors->first('tipohabitacion')}}</span>
                 @endif
 
             </div>

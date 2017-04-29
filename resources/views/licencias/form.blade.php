@@ -72,8 +72,8 @@
                 @endforeach
                 </select>
 
-                 @if($errors->has('trabajador_id'))
-                    <span style='color:red;'>{{$errors->first('trabajador_id')}}</span>
+                 @if($errors->has('trabajador'))
+                    <span style='color:red;'>{{$errors->first('trabajador')}}</span>
                 @endif
 
             </div>

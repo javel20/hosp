@@ -27,9 +27,10 @@
 
 var getUrl = window.location;
 var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
+// var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
         
 
-  $("#tipohab").on("change", function (event){
+  $("#tipohabitacion").on("change", function (event){
     console.log("asdasda");
     $.ajax({
     url:baseUrl+"/public/habitacionAjax?id=" + event.target.value,
@@ -49,7 +50,7 @@ var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
 
         });              
       
-        $("#habit").html(acumulador);
+        $("#habitacion").html(acumulador);
 
       },
 

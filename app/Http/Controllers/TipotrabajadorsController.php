@@ -99,6 +99,13 @@ class TipotrabajadorsController extends Controller
     public function update(Request $request, $id)
     {
 
+        $this->validate($request,[
+            
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'descripcion' => 'max:100'
+
+        ]); 
+
         $tipotrabajador= Tipotrabajador::find($id);
         $tipotrabajador->nombre = $request->nombre;
         $tipotrabajador->descripcion = $request->descripcion;

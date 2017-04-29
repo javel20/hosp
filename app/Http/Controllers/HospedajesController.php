@@ -72,10 +72,11 @@ class HospedajesController extends Controller
             'cliente' => 'required',
             'fechai' => 'required',
             'fechaf' => 'required',
-            // 'tipohabitacion' => 'required',
+            'tipohabitacion' => 'required',
             'preciototal' => 'required|numeric',
             'estado' => 'required',
-            // 'habitacion' => 'required',
+            'habitacion' => 'required',
+            'descripcion' => 'max:100'
 
         ]);
 
@@ -85,15 +86,18 @@ class HospedajesController extends Controller
         $hospedaje->codigo = $request->codigo;
         $hospedaje->fechai = $request->fechai;
         $hospedaje->fechaf = $request->fechaf;
-        $hospedaje->tipohabitacion = $request->tipohab;
+        $hospedaje->tipohabitacion = $request->tipohabitacion;
         $hospedaje->preciototal = $request->preciototal;
         $hospedaje->estado = $request->estado;
         $hospedaje->descripcion = $request->descripcion;
         $hospedaje->trabajador_id = $request->trabajador;
         $hospedaje->cliente_id = $request->cliente;
-        $hospedaje->habitacion_id = $request->habit;
+        $hospedaje->habitacion_id = $request->habitacion;
 
         if($hospedaje->save()){
+            // $habitacion = Habitacion::find($id);
+            // $habitacion->vigencia = 'Inactivo';
+            // $habitacion->update();
             //  dd($hospedaje);
             return redirect("/hospedajes");
         }else{
@@ -165,12 +169,13 @@ class HospedajesController extends Controller
         $hospedaje->codigo = $request->codigo;
         $hospedaje->fechai = $request->fechai;
         $hospedaje->fechaf = $request->fechaf;
+        $hospedaje->tipohabitacion = $request->tipohabitacion;
         $hospedaje->preciototal = $request->preciototal;
         $hospedaje->estado = $request->estado;
         $hospedaje->descripcion = $request->descripcion;
         $hospedaje->trabajador_id = $request->trabajador;
         $hospedaje->cliente_id = $request->cliente;
-        $hospedaje->habitacion_id = $request->habit;
+        $hospedaje->habitacion_id = $request->habitacion;
 
         if($hospedaje->save()){
             //  dd($hospedaje);

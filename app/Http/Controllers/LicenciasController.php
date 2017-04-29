@@ -56,7 +56,7 @@ class LicenciasController extends Controller
             'fechaf' => 'required',
             'estado' => 'required',
             'descripcion' => 'max:100',
-            'trabajador_id' => 'required'
+            'trabajador' => 'required'
         ]);     
 
         $licencia = new Licencia;
@@ -152,7 +152,7 @@ class LicenciasController extends Controller
             'fechaf' => 'required',
             'estado' => 'required',
             'descripcion' => 'max:100',
-            'trabajador' => 'requerid',
+            'trabajador' => 'required',
         ]);     
 
 

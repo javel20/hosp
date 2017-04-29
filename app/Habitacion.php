@@ -31,6 +31,7 @@ class Habitacion extends Model
     public function scopehabitacionAjax($query,$id)
     {
     return $query->where('tipohabitacion_id', $id)
+                    ->where('vigencia', '=','Activo')
                     ->get();
     }
 

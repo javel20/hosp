@@ -66,7 +66,7 @@ class HabitacionsController extends Controller
             'numero' => 'required|integer',
             'vigencia' => 'required',
             'estado' => 'required',
-            // 'tipohabitacion' => 'required',
+            'tipohabitacion' => 'required',
             'descripcion' => 'max:100'
 
         ]);  
@@ -77,7 +77,7 @@ class HabitacionsController extends Controller
         $habitacion->vigencia = $request->vigencia;
         $habitacion->estado = $request->estado;
         $habitacion->descripcion = $request->descripcion;
-        $habitacion->tipohabitacion_id = $request->tipoh;
+        $habitacion->tipohabitacion_id = $request->tipohabitacion;
 
        
 
@@ -144,7 +144,7 @@ class HabitacionsController extends Controller
         $habitacion->vigencia = $request->vigencia;
         $habitacion->estado = $request->estado;
         $habitacion->descripcion = $request->descripcion;
-        $habitacion->tipohabitacion_id = $request->tipoh;
+        $habitacion->tipohabitacion_id = $request->tipohabitacion;
 
         if($habitacion->save()){
             return redirect("/habitacions");
