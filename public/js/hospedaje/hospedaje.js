@@ -25,6 +25,8 @@
   //   date_input.datepicker(options);
   // })
 
+
+
 var getUrl = window.location;
 var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
 // var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
@@ -78,17 +80,26 @@ var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
 
 var arrayi='';
 var arrayii='';
+var arrayiii='';
 $("#fechai").on("change", function (event){
+  // var arrayi=document.getElementById("fechai").value;
   fechaf.value = "dd/mm/aaaa";
-  arrayi = event.target.value;
-  arrayii = arrayi.split("-");
-  console.log(arrayi.split("-"));
-  console.log(Number(arrayii[2]));
+  arrayi = moment(event.target.value);
+  // arrayii = arrayi.split("-");
+  // arrayiii = new Date(arrayii[0], arrayii[1]-1, arrayii[2]).toLocaleDateString();
+
+  // console.log(Date(arrayii[1]))
+  // console.log("arrayiii"+arrayiii);
+  // console.log("ii"+arrayii)
+  console.log("arrayi"+arrayi);
+  // console.log(arrayi.split("-"));
+  // console.log(Number(arrayii[2]));
   console.log(baseUrl+"/public/habitacionAjax?id=");
 
   })
-
+var resta='';
 var arrayff='';
+var arrayfff='';
   $("#fechaf").on("change", function (event){
     var preciototal='';
     console.log(fechai);
@@ -101,14 +112,19 @@ var arrayff='';
           
       }
       else{
-          arrayf = event.target.value;
-          arrayff = arrayf.split("-");
-          console.log(arrayf.split("-"));
-          console.log(Number(arrayff[2]));
-
-            preciototal=Number((Number(arrayff[2])-Number(arrayii[2]))*Number(precio.value));
+          arrayf = moment(event.target.value);
+          // arrayff = arrayf.split("-");
+          // arrayfff = new Date(arrayff[0], arrayff[1]-1, arrayff[2]).toLocaleDateString();
+          // console.log(arrayf.split("-"));
+          // console.log(arrayff[2]);
+          // resta=Date(arrayfff-arrayiii).toLocaleDateString();
+          resta = arrayf.diff(arrayi, "days");
+          console.log(resta);
+          // console.log(porc)
+            preciototal=Number((resta*Number(precio.value)));
             console.log("precio"+precio.value);
             console.log("pt"+preciototal);
             $("#preciototal").val(preciototal);
       }
 })
+          

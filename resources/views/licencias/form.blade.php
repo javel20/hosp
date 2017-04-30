@@ -65,9 +65,9 @@
                         <option value="">--seleccionar--</option>
                 @foreach ($trabajadors as $trab)
                         @if($licencia->trabajador_id==$trab->id)
-                            <option value={{$trab->id}} selected> {{$trab->nombre}} </option>
+                            <option value="{{$trab->id}}" selected> {{$trab->nombre}} </option>
                             @else
-                            <option value={{$trab->id}}> {{$trab->nombre}} </option>
+                            <option value="{{$trab->id}}"> {{$trab->nombre}} </option>
                         @endif
                 @endforeach
                 </select>
