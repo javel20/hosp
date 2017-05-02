@@ -2,7 +2,7 @@
 
             <div class="form-group col-md-6">
                 <label>Codigo:</label>
-                {{Form::text('codigo',$hospedaje->codigo,['class' => 'form-control', 'placeholder'=>'Codigo','maxlength'=>'8'])}}
+                {{Form::text('codigo',$hospedaje->codigo='',['class' => 'form-control', 'placeholder'=>'Codigo','maxlength'=>'8'])}}
 
                 @if($errors->has('codigo'))
                     <span style='color:red;'>{{$errors->first('codigo')}}</span>
@@ -37,7 +37,7 @@
                         <option value="">--seleccionar--</option>
                 @foreach ($tipohabitacions as $th)
                         @if($hospedaje->tipohabitacion==$th->id)
-                            <option value="{{$th->id}}" precio="{{$th->precio}}" selected> {{$th->nombre}} </option>
+                            <option value="{{$th->id}}" precio="{{$th->precio}}"> {{$th->nombre}} </option>
                             @else
                             <option value="{{$th->id}}" precio="{{$th->precio}}"> {{$th->nombre}} </option>
                         @endif
@@ -59,7 +59,7 @@
 
             <div class="form-group col-md-6">
                 <label class="control-label" for="date">Fecha Inicio</label>
-                {{Form::date('fechai',$hospedaje->fechai,['class' => 'form-control', 'id'=> 'fechai'])}}
+                {{Form::date('fechai',$hospedaje->fechai='dd/mm/aaaa',['class' => 'form-control', 'id'=> 'fechai'])}}
 
                 @if($errors->has('fechai'))
                     <span style='color:red;'>{{$errors->first('fechai')}}</span>
@@ -69,7 +69,7 @@
 
             <div class="form-group col-md-6">
                  <label class="control-label" for="date">Fecha Termino</label>
-                {{Form::date('fechaf',$hospedaje->fechaf,['class' => 'form-control', 'id'=>'fechaf'])}}
+                {{Form::date('fechaf',$hospedaje->fechaf='dd/mm/aaaa',['class' => 'form-control', 'id'=>'fechaf'])}}
 
                 @if($errors->has('fechaf'))
                     <span style='color:red;'>{{$errors->first('fechaf')}}</span>

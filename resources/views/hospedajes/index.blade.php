@@ -19,7 +19,7 @@
                         
                         <td>Fecha Inicio</td>
                         <td>Fecha Final</td>
-                        <td>habitacion</td>
+                        <td>Habitacion</td>
                         <td>Precio Total</td>
                         <td>Registrador</td>
                         <td>Estado</td>
@@ -43,7 +43,7 @@
                         <td>{{$hospedaje->descripcion}}</td>
                         <td>
                             <a href="{{url('/hospedajes/'.$hospedaje->id.'/edit')}}">Editar</a>
-
+                            @include('hospedajes.delete',['hospedaje' => $hospedaje])
                         </td>
                     </tr>
                     @endforeach

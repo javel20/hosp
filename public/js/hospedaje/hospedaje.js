@@ -1,4 +1,5 @@
 
+  // alert("vuelve ah seleccionar el tipo habitacion las fechas y la habitacion");
   // $(document).ready(function(){
     
   //   var date_input=$('input[name="fechai"]'); //our date input has the name "date"

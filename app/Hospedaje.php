@@ -33,4 +33,6 @@ class Hospedaje extends Model
                     ->paginate(7);
 
     }
+
+
 }

@@ -50,13 +50,6 @@ class HospedajesController extends Controller
         ]);
     }
 
-    public function habitacionAjax(Request $request){
-
-        $habitacion = Habitacion::habitacionAjax($request->id);
-        //  dd($habitacion);
-        return $habitacion;
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -93,12 +86,14 @@ class HospedajesController extends Controller
         $hospedaje->trabajador_id = $request->trabajador;
         $hospedaje->cliente_id = $request->cliente;
         $hospedaje->habitacion_id = $request->habitacion;
+        // $request->habitacion;
 
+            // dd($hospedaje->habitacions(1));
         if($hospedaje->save()){
-            // $habitacion = Habitacion::find($id);
-            // $habitacion->vigencia = 'Inactivo';
-            // $habitacion->update();
-            //  dd($hospedaje);
+            $habitacions = Habitacion::find($request->habitacion);
+            $habitacions->vigencia = 'Inactivo';
+            $habitacions->save();
+            
             return redirect("/hospedajes");
         }else{
             //  dd($hospedaje);
@@ -125,18 +120,20 @@ class HospedajesController extends Controller
      */
     public function edit($id)
     {
+        
         $hospedaje = Hospedaje::find($id);
         $trabajadors = Trabajador::all();
         $clientes = Cliente::all();
         $tipohabitacions = TipoHabitacion::all();
         $habitacions = Habitacion::all();
-        return view("hospedajes.create")->with([
+        return view("hospedajes.edit")->with([
              'hospedaje' => $hospedaje,
              'tipohabitacions' => $tipohabitacions,
              'trabajadors' => $trabajadors,
              'clientes' => $clientes,
              'habitacions' => $habitacions
         ]);
+        
 
     }
 
@@ -165,6 +162,11 @@ class HospedajesController extends Controller
 
 
         $hospedaje = Hospedaje::find($id);
+        // dd($hospedaje->habitacion_id);
+
+            $habitacions = Habitacion::find($hospedaje->habitacion_id);
+            $habitacions->vigencia = 'Activo';
+            $habitacions->save();
 
         $hospedaje->codigo = $request->codigo;
         $hospedaje->fechai = $request->fechai;
@@ -176,14 +178,33 @@ class HospedajesController extends Controller
         $hospedaje->trabajador_id = $request->trabajador;
         $hospedaje->cliente_id = $request->cliente;
         $hospedaje->habitacion_id = $request->habitacion;
-
+        // $habitacion->vigencia = 'Activo';
         if($hospedaje->save()){
-            //  dd($hospedaje);
+            // $habitacions->vigencia = 'Activo';
+
+            $hospedaje = Hospedaje::find($id);
+
+
+            $hospedaje = Hospedaje::find($id);
+            $habitacions = Habitacion::find($request->habitacion);
+            // dd($request->habitacion);
+            $habitacions->vigencia = 'Inactivo';
+            $habitacions->save();
+
+
             return redirect("/hospedajes");
         }else{
             //  dd($hospedaje);
             return view("/hospedajes.edit");
         }
+    }
+
+        public function habitacionAjax(Request $request){
+
+        $habitacion = Habitacion::habitacionAjax($request->id);
+        //  dd($habitacion);
+        return $habitacion;
+
     }
 
     /**
@@ -192,8 +213,33 @@ class HospedajesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+         $hospedaje = Hospedaje::find($id);
+
+// dd($hospedaje);
+        // $hospedaje = Hospedaje::find($id);
+
+        // $hospedaje->estado = "Habilitado";
+
+
+        //     if($hospedaje->update()){
+        //     //  dd($hospedaje);
+        //     // $habitacions->vigencia = 'Activo';
+        //     $habitacions = Habitacion::find($request->habitacion);
+        //     $habitacions->vigencia = 'Activo';
+            
+        //     $habitacions->save();
+        //     return redirect("/hospedajes");
+        //      }else{
+        //     //  dd($hospedaje);
+        //     return view("/hospedajes.edit");
+        // }
+// dd($hospedaje);
+        $habitacions = Habitacion::find($hospedaje->habitacion_id);
+// dd($habitacions);
+            $habitacions->vigencia = 'Activo';
+            $habitacions->save();
         Hospedaje::Destroy($id);
         return redirect('/hospedajes');
     }
