@@ -7,7 +7,7 @@
                  @if($errors->has('nombre'))
                     <span style='color:red;'>{{$errors->first('nombre')}}</span>
                 @endif
-
+            <br>
             </div>
 
 
@@ -19,7 +19,7 @@
                    @if($errors->has('fechai'))
                     <span style='color:red;'>{{$errors->first('fechai')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-6">
@@ -30,7 +30,7 @@
                    @if($errors->has('fechaf'))
                     <span style='color:red;'>{{$errors->first('fechaf')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-6">
@@ -44,7 +44,7 @@
                  @if($errors->has('estado'))
                     <span style='color:red;'>{{$errors->first('estado')}}</span>
                 @endif
-                
+                <br>
             </div>
 
 
@@ -55,7 +55,7 @@
                  @if($errors->has('descripcion'))
                     <span style='color:red;'>{{$errors->first('descripcion')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-6">
@@ -75,14 +75,16 @@
                  @if($errors->has('trabajador'))
                     <span style='color:red;'>{{$errors->first('trabajador')}}</span>
                 @endif
-
+                <br>
             </div>
 
             
 
-            <div class="form-group text-right">
-                <a href="{{url('/licencias')}}">Regresar al listado de licencia</a>
-                <input type="submit" value="Enviar" class="btn btn-success">
+            <div class="col-md-12 form-group text-right">
+                <div class="form-group text-right">
+                    <a href="{{url('/licencias')}}">Regresar al listado de licencia</a>
+                    <input type="submit" value="Enviar" class="btn btn-success">
+                </div>
             </div>
 
         {!! Form::close() !!}

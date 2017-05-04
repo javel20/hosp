@@ -7,6 +7,7 @@
                 @if($errors->has('nombre'))
                     <span style='color:red;'>{{$errors->first('nombre')}}</span>
                 @endif
+                <br>
             </div>
 
 
@@ -17,11 +18,14 @@
                 @if($errors->has('descripcion'))
                     <span style='color:red;'>{{$errors->first('descripcion')}}</span>
                 @endif
+                <br>
             </div>
 
-            <div class="form-group text-right">
-                <a href="{{url('/tipotrabajadors')}}">Regresar al listado de Tipo de trabajador</a>
-                <input type="submit" value="Enviar" class="btn btn-success">
+            <div class="col-md-12 form-group text-right"> 
+                <div class="form-group text-right">  
+                    <a href="{{url('/tipotrabajadors')}}">Regresar al listado de Tipo de trabajador</a>
+                    <input type="submit" value="Enviar" class="btn btn-success">
+                </div>
             </div>
 
         {!! Form::close() !!}

@@ -27,7 +27,7 @@
                 @if($errors->has('cliente'))
                     <span style='color:red;'>{{$errors->first('cliente')}}</span>
                 @endif
-
+<br>
             </div>
             
             <div class="form-group col-md-6">
@@ -47,13 +47,13 @@
                 @if($errors->has('tipohabitacion'))
                     <span style='color:red;'>{{$errors->first('tipohabitacion')}}</span>
                 @endif
-
+<br>
             </div>
 
             <div class="form-group col-md-6">
             <label>Precio por día</label>
                 <input type="text" class="form-control" readonly="readonly"  name="precio" id="precio" placeholder="S/." maxlength="8" required value={{$hospedaje->precio}}>
-                
+                <br>
             </div>
 
 
@@ -64,7 +64,7 @@
                 @if($errors->has('fechai'))
                     <span style='color:red;'>{{$errors->first('fechai')}}</span>
                 @endif
-
+<br>
             </div>
 
             <div class="form-group col-md-6">
@@ -74,7 +74,7 @@
                 @if($errors->has('fechaf'))
                     <span style='color:red;'>{{$errors->first('fechaf')}}</span>
                 @endif
-
+<br>
             </div>
 
             
@@ -85,7 +85,7 @@
                 @if($errors->has('preciototal'))
                     <span style='color:red;'>{{$errors->first('preciototal')}}</span>
                 @endif
-
+<br>
             </div>
 
 
@@ -106,7 +106,7 @@
                 @if($errors->has('habitacion'))
                     <span style='color:red;'>{{$errors->first('habitacion')}}</span>
                 @endif
-
+<br>
             </div>
 
             <div class="form-group col-md-6">
@@ -121,7 +121,7 @@
                 @if($errors->has('estado'))
                     <span style='color:red;'>{{$errors->first('estado')}}</span>
                 @endif
-                
+                <br>
             </div>
 
             
@@ -139,7 +139,7 @@
                 <input type="hidden" name="trabajador" value= <?php echo Auth::user()->id; ?> >
                 <input type="submit" value="Enviar" class="btn btn-success">
             </div>
-        
+        <br>
         </div>
 
         {!! Form::close() !!}

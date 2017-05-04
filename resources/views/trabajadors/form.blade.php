@@ -9,7 +9,7 @@
                 @if($errors->has('nombre'))
                     <span style='color:red;'>{{$errors->first('nombre')}}</span>
                 @endif
-                
+                <br>
             </div>
 
 
@@ -20,7 +20,7 @@
                 @if($errors->has('apellidopaterno'))
                     <span style='color:red;'>{{$errors->first('nombre')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-6">
@@ -30,7 +30,7 @@
                 @if($errors->has('apellidomaterno'))
                     <span style='color:red;'>{{$errors->first('apellidomaterno')}}</span>
                 @endif
-
+                <br>
                 
             </div>
 
@@ -41,7 +41,7 @@
                 @if($errors->has('direccion'))
                     <span style='color:red;'>{{$errors->first('direccion')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-3">
@@ -51,7 +51,7 @@
                 @if($errors->has('celular'))
                     <span style='color:red;'>{{$errors->first('celular')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-3">
@@ -70,7 +70,7 @@
                 @if($errors->has('operador'))
                     <span style='color:red;'>{{$errors->first('operador')}}</span>
                 @endif
-                
+                <br>
             </div>
 
 
@@ -86,15 +86,15 @@
                 @if($errors->has('estado'))
                     <span style='color:red;'>{{$errors->first('estado')}}</span>
                 @endif
-                
+                <br>
             </div>
 
 
             <div class="form-group col-md-6">
             <label>Tipo trabajador</label>
 
-                <select class="form-control" name="tipotrab" id="tipot" value={{$trabajador->tipotrabajador_id}}>
-                            <option value="seleccionar">--seleccionar--</option>
+                <select class="form-control" name="tipotrab" id="tipotrab" value={{$trabajador->tipotrabajador_id}}>
+                            <option value="">--seleccionar--</option>
                 @foreach($tipotrabajadors as $tipo)
                         @if($trabajador->tipotrabajador_id == $tipo->id)
                             <option value={{$tipo->id}} selected> {{$tipo->nombre}} </option>
@@ -104,17 +104,17 @@
                 @endforeach
                 </select>
 
-                @if($errors->has('tipotrabajador'))
-                    <span style='color:red;'>{{$errors->first('tipotrabajador')}}</span>
+                @if($errors->has('tipotrab'))
+                    <span style='color:red;'>{{$errors->first('tipotrab')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-6">
             <label>Local</label>
 
-                <select class="form-control" name="local" id="locals" value={{$trabajador->local_id}}>
-                            <option value="seleccionar">--seleccionar--</option>
+                <select class="form-control" name="local" id="local" value={{$trabajador->local_id}}>
+                            <option value="">--seleccionar--</option>
                 @foreach ($locals as $local)
                         @if($trabajador->local_id==$local->id)
                             <option value={{$local->id}} selected> {{$local->nombre}} </option>
@@ -124,18 +124,20 @@
                 @endforeach
                 </select>
 
-                @if($errors->has('local_id'))
-                    <span style='color:red;'>{{$errors->first('local_id')}}</span>
+                @if($errors->has('local'))
+                    <span style='color:red;'>{{$errors->first('local')}}</span>
                 @endif
-
+                <br>
             </div>
 
 
             
 
-            <div class="form-group text-right">
-                <a href="{{url('/trabajadors')}}">Regresar al listado de Trabajadores</a>
-                <input type="submit" value="Enviar" class="btn btn-success">
+            <div class="col-md-12 form-group text-right">
+                <div class="form-group text-right">
+                    <a href="{{url('/trabajadors')}}">Regresar al listado de Trabajadores</a>
+                    <input type="submit" value="Enviar" class="btn btn-success">
+                </div>
             </div>
 
         {!! Form::close() !!}

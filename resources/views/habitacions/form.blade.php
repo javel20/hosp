@@ -7,6 +7,7 @@
                 @if($errors->has('numero'))
                     <span style='color:red;'>{{$errors->first('numero')}}</span>
                 @endif
+                <br>
             </div>
 
 
@@ -20,7 +21,7 @@
                 @if($errors->has('vigencia'))
                     <span style='color:red;'>{{$errors->first('vigencia')}}</span>
                 @endif
-                
+                <br>
             </div>
 
             <div class="form-group col-md-6 col-sm-10">
@@ -35,6 +36,7 @@
                 @if($errors->has('estado'))
                     <span style='color:red;'>{{$errors->first('estado')}}</span>
                 @endif
+                <br>
             </div>
 
 
@@ -56,18 +58,19 @@
                 @if($errors->has('tipohabitacion'))
                     <span style='color:red;'>{{$errors->first('tipohabitacion')}}</span>
                 @endif
-
+                <br>
             </div>
 
             <div class="form-group col-md-6 col-sm-10">
-            <label>Descripcion</label>
-                {{Form::text('descripcion',$habitacion->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'100'])}}
-                
+                <label>Descripcion</label>
+                    {{Form::text('descripcion',$habitacion->descripcion,['class' => 'form-control', 'placeholder'=>'Descripcion','maxlength'=>'100'])}}
+                    
+            <br>
             </div>
-            
-        </div>
-        <br>
-        <div class="form-group col-md-9 col-sm-10">
+
+        
+        
+        <div class="col-md-12 form-group text-right">
             <div class="form-group text-right">
                 <br>
                 <a href="{{url('/habitacions')}}">Regresar al listado de Habitacion</a>
