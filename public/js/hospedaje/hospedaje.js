@@ -27,7 +27,7 @@
   // })
 
 
-
+const host=document.getElementById("habit").value;
 var getUrl = window.location;
 // var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje"+"/public/index.php";
 var baseUrl = getUrl .protocol + "//" + getUrl.host;
@@ -36,7 +36,8 @@ var baseUrl = getUrl .protocol + "//" + getUrl.host;
   $("#tipohabitacion").on("change", function (event){
     console.log("asdasda");
     $.ajax({
-    url:baseUrl+"/habitacionAjax?id=" + event.target.value,
+    // url:baseUrl+"/habitacionAjax?id=" + event.target.value,
+    url:host+"/habitacionAjax?id=" + event.target.value,
     dataType: 'text',
     // data : {id:event.target.value},
     cache:false,

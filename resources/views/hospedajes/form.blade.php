@@ -137,6 +137,7 @@
             <div class="form-group text-right">
                 <a href="{{url('/hospedajes')}}">Regresar al listado de hospedaje</a>
                 <input type="hidden" name="trabajador" value= <?php echo Auth::user()->id; ?> >
+                <input type="hidden" id="habit" name="habit"  value={{Request::root()}} >
                 <input type="submit" value="Enviar" class="btn btn-success">
             </div>
         <br>
