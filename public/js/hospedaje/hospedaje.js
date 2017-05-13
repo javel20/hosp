@@ -36,7 +36,7 @@ var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
   $("#tipohabitacion").on("change", function (event){
     console.log("asdasda");
     $.ajax({
-    url:baseUrl+"/public/habitacionAjax?id=" + event.target.value,
+    url:baseUrl+"/public/index.php/habitacionAjax?id=" + event.target.value,
     dataType: 'text',
     // data : {id:event.target.value},
     cache:false,
