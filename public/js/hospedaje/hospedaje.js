@@ -30,7 +30,7 @@
 
 var getUrl = window.location;
 // var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje"+"/public/index.php";
-var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" +"/index.php";
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+"/public";
 // var url=$("#habitacion").val;
 
   $("#tipohabitacion").on("change", function (event){
