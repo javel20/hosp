@@ -29,8 +29,8 @@
 
 
 var getUrl = window.location;
-var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
-// var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+// var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
         
 
   $("#tipohabitacion").on("change", function (event){
