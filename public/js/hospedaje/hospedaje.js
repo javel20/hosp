@@ -29,14 +29,14 @@
 
 
 var getUrl = window.location;
-// var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje";
-var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-        
+// var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + "hospedaje"+"/public/index.php";
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+"/public/index.php";
+// var url=$("#habitacion").val;
 
   $("#tipohabitacion").on("change", function (event){
     console.log("asdasda");
     $.ajax({
-    url:baseUrl+"/public/index.php/habitacionAjax?id=" + event.target.value,
+    url:baseUrl+"/habitacionAjax?id=" + event.target.value,
     dataType: 'text',
     // data : {id:event.target.value},
     cache:false,
