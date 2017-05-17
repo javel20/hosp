@@ -63,7 +63,7 @@ class HabitacionsController extends Controller
     {
 
         $this->validate($request,[
-            'numero' => 'required|integer',
+            'numero' => 'required|integer|unique:habitacions',
             'vigencia' => 'required',
             'estado' => 'required',
             'tipohabitacion' => 'required',
@@ -129,7 +129,7 @@ class HabitacionsController extends Controller
     {
 
         $this->validate($request,[
-            'numero' => 'required|integer',
+            'numero' => 'required|integer|unique:habitacions',
             'vigencia' => 'required',
             'estado' => 'required',
             'tipohabitacion' => 'required',

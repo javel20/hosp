@@ -47,7 +47,7 @@ class TipotrabajadorsController extends Controller
 
         $this->validate($request,[
             
-            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipotrabajadors',  
             'descripcion' => 'max:100'
 
         ]); 
@@ -101,7 +101,7 @@ class TipotrabajadorsController extends Controller
 
         $this->validate($request,[
             
-            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipotrabajadors',  
             'descripcion' => 'max:100'
 
         ]); 

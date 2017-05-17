@@ -46,7 +46,7 @@ class TipoHabitacionsController extends Controller
     {
         $this->validate($request,[
 
-            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipohabitacions',  
             'precio' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
             'descripcion' => 'max:100'
 
@@ -101,7 +101,7 @@ class TipoHabitacionsController extends Controller
     {
         $this->validate($request,[
 
-            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipohabitacions',  
             'precio' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
             'descripcion' => 'max:100'
 
