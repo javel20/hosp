@@ -22,7 +22,7 @@
   //       container: container,
   //       todayHighlight: true,
   //       autoclose: true,
-  //   };
+  //   };qwdqwdqwd
   //   date_input.datepicker(options);
   // })
 
