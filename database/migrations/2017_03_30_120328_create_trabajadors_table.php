@@ -18,6 +18,7 @@ class CreateTrabajadorsTable extends Migration
             $table->string('nombre',60);
             $table->string('apellidopaterno',30);
             $table->string('apellidomaterno',30)->nullable();
+            $table->string('dni',8);
             $table->string('direccion',50);
             $table->string('celular',9);
             $table->string('operador',20)->nullable();

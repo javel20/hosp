@@ -61,6 +61,7 @@ class TrabajadorsController extends Controller
             'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',  
             'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
             'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
+            'dni' => 'required|digits:8',
             'direccion' => 'required|min:3|max:60',    
             'celular' => 'required|digits:9',  
             'operador' => 'required',  
@@ -76,6 +77,7 @@ class TrabajadorsController extends Controller
         $trabajador->nombre = $request->nombre;
         $trabajador->apellidopaterno = $request->apellidopaterno;
         $trabajador->apellidomaterno = $request->apellidomaterno;
+        $trabajador->dni = $request->dni;
         $trabajador->direccion = $request->direccion;
         $trabajador->celular = $request->celular;
         $trabajador->operador = $request->operador;
@@ -143,6 +145,7 @@ class TrabajadorsController extends Controller
             'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',  
             'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
             'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
+            'dni' => 'required|digits:8',  
             'direccion' => 'required|min:3|max:60',    
             'celular' => 'required|digits:9',  
             'operador' => 'required',  
@@ -158,6 +161,7 @@ class TrabajadorsController extends Controller
         $trabajador->nombre = $request->nombre;
         $trabajador->apellidopaterno = $request->apellidopaterno;
         $trabajador->apellidomaterno = $request->apellidomaterno;
+        $trabajador->dni = $request->dni;
         $trabajador->direccion = $request->direccion;
         $trabajador->celular = $request->celular;
         $trabajador->operador = $request->operador;

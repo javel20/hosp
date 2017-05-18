@@ -1,6 +1,15 @@
 
 {!!Form::open(['url' => $url, 'method' => $method])!!}
 
+            <div class="form-group col-md-6">
+            <label>DNI:</label>
+                {{Form::text('dni',$trabajador->dni,['class' => 'form-control', 'placeholder'=>'dni','maxlength'=>'8'])}}
+                
+                @if($errors->has('dni'))
+                    <span style='color:red;'>{{$errors->first('dni')}}</span>
+                @endif
+                <br>
+            </div>
 
             <div class="form-group col-md-6">
             <label>Nombre:</label>

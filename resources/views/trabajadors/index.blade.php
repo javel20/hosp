@@ -15,6 +15,7 @@
             <thead>
                 <tr>
 
+                    <td>DNI</td>
                     <td>Nombre</td>
                     <td>Apellido Paterno</td>
                     <td>Apellido Materno</td>
@@ -30,6 +31,7 @@
             <tbody>
                 @foreach($trabajadors as $trabajador)
                 <tr>
+                    <td>{{$trabajador->dni}}</td>
                     <td>{{$trabajador->nombre}}</td>
                     <td>{{$trabajador->apellidopaterno}}</td>
                     <td>{{$trabajador->apellidomaterno}}</td>

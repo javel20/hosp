@@ -42,6 +42,7 @@ class Trabajador extends Model
                     ->where('trabajadors.nombre','LIKE', "%$dato->buscar%")
                     ->orWhere('trabajadors.apellidopaterno','LIKE', "%$dato->buscar%")
                     ->orWhere('trabajadors.apellidomaterno','LIKE', "%$dato->buscar%")
+                    ->orWhere('trabajadors.dni','LIKE', "%$dato->buscar%")
                     ->orWhere('trabajadors.estado','LIKE', "%$dato->buscar%")
                     ->orWhere('tipotrabajadors.nombre','LIKE', "%$dato->buscar%")
                     ->select('trabajadors.*', 'tipotrabajadors.nombre as nombrett', 'locals.nombre as nombrel')
