@@ -47,7 +47,8 @@ class TipoHabitacionsController extends Controller
         $this->validate($request,[
 
             'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipohabitacions',  
-            'precio' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'preciodia' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'preciohora' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
             'descripcion' => 'max:100'
 
         ]);
@@ -55,7 +56,8 @@ class TipoHabitacionsController extends Controller
         $tipohabitacion = new Tipohabitacion;
 
         $tipohabitacion->nombre = $request->nombre;
-        $tipohabitacion->precio = $request->precio;
+        $tipohabitacion->preciodia = $request->preciodia;
+        $tipohabitacion->preciohora = $request->preciohora;
         $tipohabitacion->descripcion = $request->descripcion;
 
         if($tipohabitacion->save()){
@@ -102,7 +104,8 @@ class TipoHabitacionsController extends Controller
         $this->validate($request,[
 
             'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipohabitacions',  
-            'precio' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'preciodia' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'preciohora' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
             'descripcion' => 'max:100'
 
         ]);
@@ -110,7 +113,8 @@ class TipoHabitacionsController extends Controller
         $tipohabitacion= Tipohabitacion::find($id);
 
         $tipohabitacion->nombre = $request->nombre;
-        $tipohabitacion->precio = $request->precio;
+        $tipohabitacion->preciodia = $request->preciodia;
+        $tipohabitacion->preciohora = $request->preciohora;
         $tipohabitacion->descripcion = $request->descripcion;
 
         if($tipohabitacion->save()){

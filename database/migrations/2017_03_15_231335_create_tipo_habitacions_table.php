@@ -17,7 +17,8 @@ class CreateTipoHabitacionsTable extends Migration
 
             $table->increments('id');
             $table->string('nombre', 30)->unique();
-            $table->double('precio', 7,2);
+            $table->double('preciodia', 7,2);
+            $table->double('preciohora', 7,2);
             $table->string('descripcion',100)->nullable();
             $table->timestamps();
 

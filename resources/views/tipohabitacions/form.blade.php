@@ -12,10 +12,19 @@
 
 
             <div class="form-group col-md-6">
-            <label>Precio</label>
-                {{Form::text('precio',$tipohabitacion->precio,['class' => 'form-control', 'placeholder'=>'S/.','maxlength'=>'8'])}}
-                @if($errors->has('precio'))
-                    <span style='color:red;'>{{$errors->first('precio')}}</span>
+            <label>Precio por dia</label>
+                {{Form::text('rpeciodia',$tipohabitacion->rpeciodia,['class' => 'form-control', 'placeholder'=>'S/.','maxlength'=>'8'])}}
+                @if($errors->has('rpeciodia'))
+                    <span style='color:red;'>{{$errors->first('rpeciodia')}}</span>
+                @endif
+                <br>
+            </div>
+
+            <div class="form-group col-md-6">
+            <label>Precio por hora</label>
+                {{Form::text('preciohora',$tipohabitacion->preciohora,['class' => 'form-control', 'placeholder'=>'S/.','maxlength'=>'8'])}}
+                @if($errors->has('preciohora'))
+                    <span style='color:red;'>{{$errors->first('preciohora')}}</span>
                 @endif
                 <br>
             </div>
