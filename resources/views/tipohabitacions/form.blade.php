@@ -13,9 +13,9 @@
 
             <div class="form-group col-md-6">
             <label>Precio por dia</label>
-                {{Form::text('rpeciodia',$tipohabitacion->rpeciodia,['class' => 'form-control', 'placeholder'=>'S/.','maxlength'=>'8'])}}
-                @if($errors->has('rpeciodia'))
-                    <span style='color:red;'>{{$errors->first('rpeciodia')}}</span>
+                {{Form::text('preciodia',$tipohabitacion->preciodia,['class' => 'form-control', 'placeholder'=>'S/.','maxlength'=>'8'])}}
+                @if($errors->has('preciodia'))
+                    <span style='color:red;'>{{$errors->first('preciodia')}}</span>
                 @endif
                 <br>
             </div>

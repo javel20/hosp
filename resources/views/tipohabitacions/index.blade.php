@@ -16,7 +16,8 @@
                 <tr>
 
                     <td>Nombre</td>
-                    <td>Precio</td>
+                    <td>Precio dia</td>
+                    <td>Precio hora</td>
                     <td>Descripcion</td>
                     <td>Acciones</td>
                 </tr>
@@ -25,7 +26,8 @@
                 @foreach($tipohabitacions as $tipohabitacion)
                 <tr>
                     <td>{{$tipohabitacion->nombre}}</td>
-                    <td>{{$tipohabitacion->precio}}</td>
+                    <td>{{$tipohabitacion->preciodia}}</td>
+                    <td>{{$tipohabitacion->preciohora}}</td>
                     <td>{{$tipohabitacion->descripcion}}</td>
                     <td>
                         <a href="{{url('/tipohabitacions/'.$tipohabitacion->id.'/edit')}}">Editar</a>
