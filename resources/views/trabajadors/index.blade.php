@@ -43,6 +43,8 @@
                     <td>{{$trabajador->local->nombre}}</td>
                     
 
+                    
+
                     <td>
                         <a href="{{url('/trabajadors/'.$trabajador->id.'/edit')}}">Editar</a>
                         @include('trabajadors.delete',['trabajador' => $trabajador])

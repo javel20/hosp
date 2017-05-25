@@ -89,6 +89,10 @@ class HospedajesController extends Controller
         // $request->habitacion;
 
             // dd($hospedaje->habitacions(1));
+
+// if($_POST['diahora'] == "Dia"){
+// dd($request);
+// }
         if($hospedaje->save()){
             $habitacions = Habitacion::find($request->habitacion);
             $habitacions->vigencia = 'Inactivo';

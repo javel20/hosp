@@ -27,19 +27,42 @@
                 @if($errors->has('cliente'))
                     <span style='color:red;'>{{$errors->first('cliente')}}</span>
                 @endif
-<br>
+                <br>
             </div>
             
-            <div class="form-group col-md-6">
-            <label>Tipo Habitacion</label>
+            <div class="form-group col-md-4">   
+            <label>Día o Hora</label>
 
-                <select class="form-control" name="tipohabitacion" id="tipohabitacion" value="{{$hospedaje->tipohabitacion}}">
-                        <option value="">--seleccionar--</option>
-                @foreach ($tipohabitacions as $th)
+                <select class="form-control" name="diahora" id="diahora" >
+                        <option>--seleccionar--</option>
+                            <option>Dia</option>
+                            <option>Hora</option>
+                <!--@foreach ($tipohabitacions as $th)
                         @if($hospedaje->tipohabitacion==$th->id)
                             <option value="{{$th->id}}" precio="{{$th->precio}}"> {{$th->nombre}} </option>
                             @else
                             <option value="{{$th->id}}" precio="{{$th->precio}}"> {{$th->nombre}} </option>
+                        @endif
+                @endforeach-->
+                </select>
+
+                @if($errors->has('diahora'))
+                    <span style='color:red;'>{{$errors->first('diahora')}}</span>
+                @endif
+                <br>
+            </div>
+
+
+            <div class="form-group col-md-4">
+            <label>Tipo Habitacion</label>
+
+                <select class="form-control" name="tipohabitacion" id="tipohabitacion" value="{{$hospedaje->tipohabitacion}}">
+                        <option value="0">--seleccionar--</option>
+                @foreach ($tipohabitacions as $th)
+                        @if($hospedaje->tipohabitacion==$th->id)
+                            <option value="{{$th->id}}" preciodia="{{$th->preciodia}}" preciohora="{{$th->preciohora}}"> {{$th->nombre}} </option>
+                            @else
+                            <option value="{{$th->id}}" preciodia="{{$th->preciodia}}" preciohora="{{$th->preciohora}}"> {{$th->nombre}} </option>
                         @endif
                 @endforeach
                 </select>
@@ -47,35 +70,57 @@
                 @if($errors->has('tipohabitacion'))
                     <span style='color:red;'>{{$errors->first('tipohabitacion')}}</span>
                 @endif
-<br>
+                <br>
             </div>
 
-            <div class="form-group col-md-6">
-            <label>Precio por día</label>
+
+            <div class="form-group col-md-4">
+            <label>Precio</label>
                 <input type="text" class="form-control" readonly="readonly"  name="precio" id="precio" placeholder="S/." maxlength="8" required value={{$hospedaje->precio}}>
                 <br>
             </div>
 
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 fechai" id=fechai>
                 <label class="control-label" for="date">Fecha Inicio</label>
                 {{Form::date('fechai',$hospedaje->fechai='dd/mm/aaaa',['class' => 'form-control', 'id'=> 'fechai'])}}
 
                 @if($errors->has('fechai'))
                     <span style='color:red;'>{{$errors->first('fechai')}}</span>
                 @endif
-<br>
+                <br>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 fechaf" id=fechaf> 
                  <label class="control-label" for="date">Fecha Termino</label>
                 {{Form::date('fechaf',$hospedaje->fechaf='dd/mm/aaaa',['class' => 'form-control', 'id'=>'fechaf'])}}
-
+                
                 @if($errors->has('fechaf'))
                     <span style='color:red;'>{{$errors->first('fechaf')}}</span>
                 @endif
-<br>
+                <br>
             </div>
+
+            <div class="form-group col-md-6 horai" id=horai> 
+                 <label class="control-label" for="date">Fecha Termino</label>
+                {{Form::time('horai',$hospedaje->horai='dd/mm/aaaa',['class' => 'form-control', 'id'=>'horai'])}}
+                
+                @if($errors->has('horai'))
+                    <span style='color:red;'>{{$errors->first('horai')}}</span>
+                @endif
+                <br>
+            </div>
+
+            <div class="form-group col-md-6 horaf" id=horaf> 
+                 <label class="control-label" for="date">Fecha Termino</label>
+                {{Form::time('horaf',$hospedaje->horaf='dd/mm/aaaa',['class' => 'form-control', 'id'=>'horaf'])}}
+                
+                @if($errors->has('horaf'))
+                    <span style='color:red;'>{{$errors->first('horaf')}}</span>
+                @endif
+                <br>
+            </div>
+
 
             
             <div class="form-group col-md-6">

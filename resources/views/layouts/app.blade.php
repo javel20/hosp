@@ -61,19 +61,28 @@
                             
                             <!--<li><a href="{{ url('users/create') }}">Register</a></li>-->
                         @else
-                            <li>
-                                        <a ><?php echo Auth::user()->email;?>
-                                            <a href="{{ url('/logout') }}"
-                                                onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                                Logout
-                                            </a>
-                                        </a>
+                        
+                
+                                <li>
+                                    <a >
+                                        <?php echo Auth::user()->email;?>
+                                    </a>
 
+                                </li>
+                                
+                                <li>
+                                    <a href="{{ url('/logout') }}"
+                                         onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+                                        
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                            </li>
+                                </li>
+                            </ul>
+                        </div>
                         @endif
                     </ul>
                 </div>
