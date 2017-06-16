@@ -18,10 +18,13 @@ class Permisos
      */
     public function handle($request, Closure $next, $perm)
     {
-        // dd(session("accesos"));
+         // dd($request->session("accesos"));
+        // dd($request);
     $ban='0';
         if(session("accesos")){
             foreach(session("accesos") as $acc){
+
+                    // dd($acc);
 
                 if($acc->id == $perm){
                     $ban=+1;

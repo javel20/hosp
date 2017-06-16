@@ -33,7 +33,7 @@
             <div class="form-group col-md-4">   
             <label>Día o Hora</label>
 
-                <select class="form-control" name="diahora" id="diahora" >
+                <select class="form-control" name="diahora" id="diahora" value=''>
                         <option>--seleccionar--</option>
                             <option>Dia</option>
                             <option>Hora</option>
@@ -81,7 +81,7 @@
             </div>
 
 
-            <div class="form-group col-md-6 fechai" id=fechai>
+            <div class="form-group col-md-6 fechai" id=fechaii>
                 <label class="control-label" for="date">Fecha Inicio</label>
                 {{Form::date('fechai',$hospedaje->fechai='dd/mm/aaaa',['class' => 'form-control', 'id'=> 'fechai'])}}
 
@@ -91,7 +91,7 @@
                 <br>
             </div>
 
-            <div class="form-group col-md-6 fechaf" id=fechaf> 
+            <div class="form-group col-md-6 fechaf" id=fechaff> 
                  <label class="control-label" for="date">Fecha Termino</label>
                 {{Form::date('fechaf',$hospedaje->fechaf='dd/mm/aaaa',['class' => 'form-control', 'id'=>'fechaf'])}}
                 
@@ -101,9 +101,9 @@
                 <br>
             </div>
 
-            <div class="form-group col-md-6 horai" id=horai> 
-                 <label class="control-label" for="date">Fecha Termino</label>
-                {{Form::time('horai',$hospedaje->horai='dd/mm/aaaa',['class' => 'form-control', 'id'=>'horai'])}}
+            <div class="form-group col-md-6 horai" id=horaii> 
+                 <label class="control-label" for="date">Hora Inicio</label>
+                {{Form::time('horai',$hospedaje->horai='--:--',['class' => 'form-control', 'id'=>'horai'])}}
                 
                 @if($errors->has('horai'))
                     <span style='color:red;'>{{$errors->first('horai')}}</span>
@@ -111,9 +111,9 @@
                 <br>
             </div>
 
-            <div class="form-group col-md-6 horaf" id=horaf> 
-                 <label class="control-label" for="date">Fecha Termino</label>
-                {{Form::time('horaf',$hospedaje->horaf='dd/mm/aaaa',['class' => 'form-control', 'id'=>'horaf'])}}
+            <div class="form-group col-md-6 horaf" id=horaff> 
+                 <label class="control-label" for="date">Hora Termino</label>
+                {{Form::time('horaf',$hospedaje->horaf='--:--',['class' => 'form-control', 'id'=>'horaf'])}}
                 
                 @if($errors->has('horaf'))
                     <span style='color:red;'>{{$errors->first('horaf')}}</span>

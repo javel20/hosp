@@ -56,6 +56,8 @@ class TrabajadorsController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request);
+
         $this->validate($request,[
 
             'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',  
@@ -89,7 +91,7 @@ class TrabajadorsController extends Controller
        
 
         if($trabajador->save()){
-            //  dd($trabajador);
+             // dd($trabajador);
             return redirect("/trabajadors");
         }else{
             //  dd($trabajador);
