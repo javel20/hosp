@@ -154,20 +154,7 @@
 <br>
             </div>
 
-            <div class="form-group col-md-6">
-            <label>Estado</label>
-                <select class="form-control" name="estado" id="estado" value={{$hospedaje->estado}}>
-                    <option value="">--seleccionar--</option>
-                    <option value="Habilitado" <?php echo ($hospedaje->estado=="Habilitado" ? 'selected="selected"' : '');?>>Habilitado</option>
-                    <option value="Ocupado" <?php echo ($hospedaje->estado=="Ocupado" ? 'selected="selected"' : '');?>>Ocupado</option>
-                    <option value="Reservado" <?php echo ($hospedaje->estado=="Reservado" ? 'selected="selected"' : '');?>>Reservado</option>
-                </select>
-
-                @if($errors->has('estado'))
-                    <span style='color:red;'>{{$errors->first('estado')}}</span>
-                @endif
-                <br>
-            </div>
+            
 
             
 
