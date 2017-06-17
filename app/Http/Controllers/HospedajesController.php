@@ -39,7 +39,7 @@ class HospedajesController extends Controller
         $trabajadors = Trabajador::all();
         $clientes = Cliente::all();
         $tipohabitacions = Tipohabitacion::all();
-        // dd($tipohabitacions);
+        // dd($hospedaje);
         $habitacions = Habitacion::all();
         return view("hospedajes.create")->with([
              'hospedaje' => $hospedaje,
@@ -77,8 +77,6 @@ class HospedajesController extends Controller
         $hospedaje = new Hospedaje;
 
         $hospedaje->codigo = $request->codigo;
-        $hospedaje->fechai = $request->fechai;
-        $hospedaje->fechaf = $request->fechaf;
         $hospedaje->tipohabitacion = $request->tipohabitacion;
         $hospedaje->preciototal = $request->preciototal;
         $hospedaje->estado = $request->estado;
@@ -86,14 +84,19 @@ class HospedajesController extends Controller
         $hospedaje->trabajador_id = $request->trabajador;
         $hospedaje->cliente_id = $request->cliente;
         $hospedaje->habitacion_id = $request->habitacion;
-        // $request->habitacion;
+        // dd($request->habitacion);
 
-            // dd($hospedaje->habitacions(1));
+        if($_POST['diahora'] == "Dia"){
+        // dd($request);
+            $hospedaje->fechai = $request->fechai;
+            $hospedaje->fechaf = $request->fechaf;
+        }elseif($_POST['diahora'] == "Hora"){
+            $hospedaje->horai = $request->horai;
+            $hospedaje->horaf = $request->horaf;
+        }
 
-// if($_POST['diahora'] == "Dia"){
-// dd($request);
-// }
         if($hospedaje->save()){
+            // dd($_POST['diahora']);
             $habitacions = Habitacion::find($request->habitacion);
             $habitacions->vigencia = 'Inactivo';
             $habitacions->save();
