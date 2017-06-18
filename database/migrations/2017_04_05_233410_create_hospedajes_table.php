@@ -16,10 +16,10 @@ class CreateHospedajesTable extends Migration
         Schema::create('hospedajes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo')->unique();
-            $table->string('fechai',10);
-            $table->string('fechaf',10);
-            $table->string('horai',10);
-            $table->string('horaf',10);
+            $table->string('fechai',10)->nullable();
+            $table->string('fechaf',10)->nullable();
+            $table->string('horai',10)->nullable();
+            $table->string('horaf',10)->nullable(); 
             $table->string('tipohabitacion', 30);
             $table->string('preciototal', 7,2);
             $table->string('estado',30);

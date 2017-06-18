@@ -63,11 +63,11 @@ class HospedajesController extends Controller
         $this->validate($request,[
             'codigo' => 'required|integer',
             'cliente' => 'required',
-            'fechai' => 'required',
-            'fechaf' => 'required',
+            // 'fechai' => 'required',
+            // 'fechaf' => 'required',
             'tipohabitacion' => 'required',
             'preciototal' => 'required|numeric',
-            'estado' => 'required',
+            // 'estado' => 'required',
             'habitacion' => 'required',
             'descripcion' => 'max:100'
 
@@ -90,13 +90,18 @@ class HospedajesController extends Controller
         // dd($request);
             $hospedaje->fechai = $request->fechai;
             $hospedaje->fechaf = $request->fechaf;
+            $hospedaje->horai = null;
+            $hospedaje->horaf = null;
         }elseif($_POST['diahora'] == "Hora"){
             $hospedaje->horai = $request->horai;
             $hospedaje->horaf = $request->horaf;
+            $hospedaje->fechai = null;
+            $hospedaje->fechaf = null;
         }
 
         if($hospedaje->save()){
             // dd($_POST['diahora']);
+            // dd($request);
             $habitacions = Habitacion::find($request->habitacion);
             $habitacions->vigencia = 'Inactivo';
             $habitacions->save();

@@ -17,8 +17,8 @@
                         <td>codigo</td>
                         <td>Cliente</td>
                         
-                        <td>Fecha Inicio</td>
-                        <td>Fecha Final</td>
+                        <td>Fecha Inicio / Hora Inicio</td>
+                        <td>Fecha Final / Hora Fin</td>
                         <td>Habitacion</td>
                         <td>Precio Total</td>
                         <td>Registrador</td>
@@ -34,8 +34,8 @@
                         <td>{{$hospedaje->codigo}}</td>
                         <td>{{$hospedaje->cliente->nombre}} {{$hospedaje->cliente->apellidopaterno}} {{$hospedaje->cliente->apellidomaterno}}</td>
                         
-                        <td>{{$hospedaje->fechai}}</td>
-                        <td>{{$hospedaje->fechaf}}</td>
+                        <td>{{$hospedaje->fechai}}{{$hospedaje->horai}}</td>
+                        <td>{{$hospedaje->fechaf}}{{$hospedaje->horaf}}</td>
                         <td>{{$hospedaje->habitacion->numero}}</td>
                         <td>{{$hospedaje->preciototal}}</td>
                         <td>{{$hospedaje->trabajador->nombre}} {{$hospedaje->trabajador->apellidopaterno}} {{$hospedaje->trabajador->apellidomaterno}}</td>
